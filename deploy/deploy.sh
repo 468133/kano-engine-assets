@@ -6,7 +6,6 @@ BIN=$DIR/kano_engine
 VER=$DIR/kano_engine.ver
 PID=$DIR/kano_engine.pid
 CURL=$DIR/files/curl
-URL="https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.0.b64"
 MD5="0313814a6958c706c5087e425946f2cd"
 BOOT=/sdcard/ufi_tools_boot.sh
 BOOTLINE="nohup $BIN >/dev/null 2>&1 &"
@@ -14,13 +13,19 @@ BOOTLINE="nohup $BIN >/dev/null 2>&1 &"
 C=curl
 [ -x "$CURL" ] && C="$CURL"
 
-# 1. 下载 base64 并解码(jsDelivr 国内多节点轮询, 防单节点被阻断)
+# 1. 下载 base64 并解码(jsDelivr 4节点 + GitHub 代理 2节点轮询, 防单源被阻断)
 ok=0
-for h in cdn.jsdelivr.net fastly.jsdelivr.net gcore.jsdelivr.net testingcf.jsdelivr.net; do
-    U=$(printf '%s' "$URL" | sed "s/cdn.jsdelivr.net/$h/")
+for U in \
+  "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.0.b64" \
+  "https://fastly.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.0.b64" \
+  "https://gcore.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.0.b64" \
+  "https://testingcf.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.0.b64" \
+  "https://ghfast.top/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v21.0.0.b64" \
+  "https://ghproxy.net/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v21.0.0.b64" \
+; do
     "$C" -fsSL --connect-timeout 10 "$U" -o "$DIR/.ke.b64" && [ -s "$DIR/.ke.b64" ] && { ok=1; break; }
 done
-[ "$ok" = "1" ] || { echo "部署失败: 下载失败"; rm -f "$DIR/.ke.b64"; exit 1; }
+[ "$ok" = "1" ] || { echo "部署失败: 全部下载源不通"; rm -f "$DIR/.ke.b64"; exit 1; }
 (base64 -d "$DIR/.ke.b64" 2>/dev/null || busybox base64 -d "$DIR/.ke.b64" 2>/dev/null) > "$BIN.new"
 rm -f "$DIR/.ke.b64"
 [ -s "$BIN.new" ] || { echo "部署失败: 解码为空"; rm -f "$BIN.new"; exit 1; }

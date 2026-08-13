@@ -1,9 +1,9 @@
 {
-  "rev": "21.0.2",
+  "rev": "21.0.3",
   "jsRev": "21.0.4",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.2.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v21.0.2.b64",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.3.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v21.0.3.b64",
   "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.0.4.b64",
-  "md5": "763ff2c7485acca85a4821a37d9df734",
-  "notes": "引擎 v21.0.2: 阶段看门狗(卡死记阶段号自动重启) | 插件 v21.0.4: 自更新大文件落盘分块读回(修长度0)+引擎面板图标与按钮收纳"
+  "md5": "92b726afb9d8bbeefe57b4f2795a0261",
+  "notes": "引擎 v21.0.3: 修复 ipmap memset 填充错误导致的首轮死循环(进程假活/不写JSON) | 插件 v21.0.4: 自更新落盘分块读回+面板美化"
 }

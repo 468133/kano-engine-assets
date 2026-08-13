@@ -13,9 +13,11 @@ BOOTLINE="nohup $BIN >/dev/null 2>&1 &"
 C=curl
 [ -x "$CURL" ] && C="$CURL"
 
-# 1. 下载 base64 并解码(jsDelivr 4节点 + GitHub 代理 2节点轮询, 防单源被阻断)
+# 1. 下载 base64 并解码(国内镜像 + jsDelivr 4节点 + GitHub 代理 2节点轮询, 防单源被阻断)
 ok=0
 for U in \
+  "https://cdn.jsdmirror.com/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.0.b64" \
+  "https://jsd.onmicrosoft.cn/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.0.b64" \
   "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.0.b64" \
   "https://fastly.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.0.b64" \
   "https://gcore.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.0.b64" \
@@ -23,7 +25,7 @@ for U in \
   "https://ghfast.top/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v21.0.0.b64" \
   "https://ghproxy.net/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v21.0.0.b64" \
 ; do
-    "$C" -fsSL --connect-timeout 10 "$U" -o "$DIR/.ke.b64" && [ -s "$DIR/.ke.b64" ] && { ok=1; break; }
+    "$C" -fsSL --connect-timeout 8 --max-time 30 "$U" -o "$DIR/.ke.b64" && [ -s "$DIR/.ke.b64" ] && { ok=1; break; }
 done
 [ "$ok" = "1" ] || { echo "部署失败: 全部下载源不通"; rm -f "$DIR/.ke.b64"; exit 1; }
 (base64 -d "$DIR/.ke.b64" 2>/dev/null || busybox base64 -d "$DIR/.ke.b64" 2>/dev/null) > "$BIN.new"

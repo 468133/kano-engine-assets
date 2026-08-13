@@ -1,9 +1,9 @@
 {
-  "rev": "21.0.1",
-  "jsRev": "21.0.3",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.1.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v21.0.1.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.0.3.b64",
-  "md5": "8f1f890e8e1938cd303a0a60698cca6a",
-  "notes": "引擎 v21.0.1: 阶段日志/僵尸误判修复/退出自删pid/超时兜底 | 插件 v21.0.3: 心跳选主(不再重复日报)+上传者标记筛选+引擎单独卸载+插件自更新+清单缓存穿透+引擎自检两段式(修复被宿主强杀)"
+  "rev": "21.0.2",
+  "jsRev": "21.0.4",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.2.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v21.0.2.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.0.4.b64",
+  "md5": "763ff2c7485acca85a4821a37d9df734",
+  "notes": "引擎 v21.0.2: 阶段看门狗(卡死记阶段号自动重启) | 插件 v21.0.4: 自更新大文件落盘分块读回(修长度0)+引擎面板图标与按钮收纳"
 }

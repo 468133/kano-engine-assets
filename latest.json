@@ -3,6 +3,6 @@
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.0.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v21.0.0.b64",
   "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.0.0.b64",
-  "md5": "00000000000000000000000000000000",
-  "notes": "v21.0.0: 全新 conntrack 统计引擎\n- 修复 IPv6 轮换虚高\n- 支持后台长时间统计\n- 支持云端自动更新"
+  "md5": "0313814a6958c706c5087e425946f2cd",
+  "notes": "v21.0.0: conntrack+sysfs 统计引擎首版，内核精确记账，页面关闭持续统计"
 }

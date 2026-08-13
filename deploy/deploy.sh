@@ -14,8 +14,13 @@ BOOTLINE="nohup $BIN >/dev/null 2>&1 &"
 C=curl
 [ -x "$CURL" ] && C="$CURL"
 
-# 1. 下载 base64 并解码
-"$C" -fsSL --connect-timeout 15 "$URL" -o "$DIR/.ke.b64" || { echo "部署失败: 下载失败"; exit 1; }
+# 1. 下载 base64 并解码(jsDelivr 国内多节点轮询, 防单节点被阻断)
+ok=0
+for h in cdn.jsdelivr.net fastly.jsdelivr.net gcore.jsdelivr.net testingcf.jsdelivr.net; do
+    U=$(printf '%s' "$URL" | sed "s/cdn.jsdelivr.net/$h/")
+    "$C" -fsSL --connect-timeout 10 "$U" -o "$DIR/.ke.b64" && [ -s "$DIR/.ke.b64" ] && { ok=1; break; }
+done
+[ "$ok" = "1" ] || { echo "部署失败: 下载失败"; rm -f "$DIR/.ke.b64"; exit 1; }
 (base64 -d "$DIR/.ke.b64" 2>/dev/null || busybox base64 -d "$DIR/.ke.b64" 2>/dev/null) > "$BIN.new"
 rm -f "$DIR/.ke.b64"
 [ -s "$BIN.new" ] || { echo "部署失败: 解码为空"; rm -f "$BIN.new"; exit 1; }

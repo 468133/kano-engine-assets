@@ -1,9 +1,9 @@
 {
   "rev": "21.0.3",
-  "jsRev": "21.0.7",
+  "jsRev": "21.0.8",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.3.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v21.0.3.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.0.7.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.0.8.b64",
   "md5": "92b726afb9d8bbeefe57b4f2795a0261",
-  "notes": "插件 v21.0.7: 修复Dock遮挡弹窗(z-index:0), 弹窗液态玻璃化与主界面同风格, 弹窗标题换几何图标, 设置页按钮合并一行"
+  "notes": "插件 v21.0.8: 手机视图优化(上传下载双显+颜色区分), 运行时间改为xx:xx:xx格式, 设备趋势支持柱形图/折线图切换, 卸载按钮醒目化, 新增TG问题反馈入口, 修复诊断页uiMode引用错误"
 }

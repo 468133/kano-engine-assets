@@ -1157,7 +1157,7 @@
                         <div style="font-weight:700;color:var(--dark-btn-color-active);">${formatBytes(t.total)}</div>
                         <div style="width:100%;height:3px;background:rgba(255,255,255,0.06);border-radius:2px;margin-top:4px;overflow:hidden;"><div style="width:${pct}%;height:100%;background:linear-gradient(90deg,var(--dark-btn-color-active),#4ade80);border-radius:2px;"></div></div>
                         <div style="font-size:9px;opacity:.4;text-align:right;">${pct}%</div>
-                        <div class="kano-td-sub" style="font-size:9px;opacity:.55;text-align:right;margin-top:3px;">${ICON.up} ${formatBytes(t.up)} \u00B7 ${ICON.down} ${formatBytes(t.down)}${(t.speedUp > 0 || t.speedDown > 0) ? ` \u00B7 +${formatBytes(Math.max(t.speedUp, t.speedDown))}/s` : ''}</div>
+                        <div class="kano-td-sub" style="font-size:9px;opacity:.75;text-align:right;margin-top:3px;"><span style="color:#4ade80;">${ICON.up}${formatBytes(t.up)}${t.speedUp > 0 ? ' +'+formatBytes(t.speedUp)+'/s' : ''}</span> \u00B7 <span style="color:#60a5fa;">${ICON.down}${formatBytes(t.down)}${t.speedDown > 0 ? ' +'+formatBytes(t.speedDown)+'/s' : ''}</span></div>
                     </td>
                     <td class="kano-td" style="padding:10px 4px;text-align:center;">
                         ${fmtLimitBtn(d.mac, false)}
@@ -1205,7 +1205,7 @@
                     <td class="kano-td" style="padding:8px;text-align:right;font-size:11px;min-width:90px;">
                         <div style="font-weight:600;">${formatBytes(t.total)}</div>
                         <div style="font-size:9px;opacity:.35;">${fmtTime(d.lastSeen)}</div>
-                        <div class="kano-td-sub" style="font-size:9px;opacity:.45;text-align:right;margin-top:2px;">${ICON.up} ${formatBytes(t.up)} \u00B7 ${ICON.down} ${formatBytes(t.down)}</div>
+                        <div class="kano-td-sub" style="font-size:9px;opacity:.65;text-align:right;margin-top:2px;"><span style="color:#4ade80;">${ICON.up}${formatBytes(t.up)}</span> \u00B7 <span style="color:#60a5fa;">${ICON.down}${formatBytes(t.down)}</span></div>
                     </td>
                     <td class="kano-td" style="padding:8px 4px;text-align:center;">
                         ${fmtLimitBtn(d.mac, true)}
@@ -3280,11 +3280,9 @@
             #IFRAME_KANO_TRAFFIC.kano-compact .kano-tbl .kano-mac,
             #IFRAME_KANO_TRAFFIC.kano-compact .kano-tbl .kano-signal { display:none !important; }
             #IFRAME_KANO_TRAFFIC.kano-compact .kano-tbl th:nth-child(4),
-            #IFRAME_KANO_TRAFFIC.kano-compact .kano-tbl th:nth-child(5) { font-size:9px !important; padding:4px 2px !important; }
+            #IFRAME_KANO_TRAFFIC.kano-compact .kano-tbl th:nth-child(5),
             #IFRAME_KANO_TRAFFIC.kano-compact .kano-tbl td:nth-child(4),
-            #IFRAME_KANO_TRAFFIC.kano-compact .kano-tbl td:nth-child(5) { font-size:10px !important; padding:4px 2px !important; }
-            #IFRAME_KANO_TRAFFIC.kano-compact .kano-tbl td:nth-child(4) { color:#4ade80 !important; }
-            #IFRAME_KANO_TRAFFIC.kano-compact .kano-tbl td:nth-child(5) { color:#60a5fa !important; }
+            #IFRAME_KANO_TRAFFIC.kano-compact .kano-tbl td:nth-child(5) { display:none !important; }
             #IFRAME_KANO_TRAFFIC.kano-compact .kano-hostname { font-size:12px !important; }
             #IFRAME_KANO_TRAFFIC.kano-compact .kano-btn-row { gap:5px !important; }
             #IFRAME_KANO_TRAFFIC.kano-compact .kano-btn-row button { font-size:10px !important; padding:3px 7px !important; }

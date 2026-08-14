@@ -1,9 +1,9 @@
 {
   "rev": "21.0.3",
-  "jsRev": "21.0.4",
+  "jsRev": "21.0.7",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.3.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v21.0.3.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.0.4.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.0.7.b64",
   "md5": "92b726afb9d8bbeefe57b4f2795a0261",
-  "notes": "引擎 v21.0.3: 修复 ipmap memset 填充错误导致的首轮死循环(进程假活/不写JSON) | 插件 v21.0.4: 自更新落盘分块读回+面板美化"
+  "notes": "插件 v21.0.7: 修复Dock遮挡弹窗(z-index:0), 弹窗液态玻璃化与主界面同风格, 弹窗标题换几何图标, 设置页按钮合并一行"
 }

@@ -6,7 +6,7 @@ BIN=$DIR/kano_engine
 VER=$DIR/kano_engine.ver
 PID=$DIR/kano_engine.pid
 CURL=$DIR/files/curl
-MD5="92b726afb9d8bbeefe57b4f2795a0261"
+MD5="50c8ab5a7fe049901f2742f816071631"
 BOOT=/sdcard/ufi_tools_boot.sh
 BOOTLINE="nohup $BIN >>$DIR/kano_engine.log 2>&1 &"
 

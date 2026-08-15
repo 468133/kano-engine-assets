@@ -1,9 +1,9 @@
 {
   "rev": "1.0.1",
-  "jsRev": "21.1.4",
+  "jsRev": "21.1.5",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.1.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.1.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.4.b64",
+  "js": "js/patch_v21.1.5.b64",
   "md5": "08c67b386a90c4884fc7823934ceb8c9",
-  "notes": "引擎 v1.0.1: 修复连接首见把历史字节当新增(重启回填/虚增根因), WAN探测蜂窝口优先(usb0让位sipa_eth0); 插件 v21.1.4: 诊断包复制按钮置顶免滑动, 诊断页按钮不透明度修正, 引擎已最新时跳过部署"
+  "notes": "插件v21.1.5: 超窄屏小窗田字视图; 自更新前落盘历史防丢失"
 }

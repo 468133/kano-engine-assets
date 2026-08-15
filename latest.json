@@ -1,9 +1,9 @@
 {
   "rev": "1.0.2",
-  "jsRev": "21.1.7",
+  "jsRev": "21.1.8",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.2.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.2.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.7.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.8.b64",
   "md5": "f334b2d7ef5e2b74e2c1017cbfce7e53",
-  "notes": "插件v21.1.7: 修复清单js为相对路径导致自更新下载必败(长度0); 引擎v1.0.2: v6诊断+日志自封顶"
+  "notes": "插件v21.1.8: 修复formatBytes包装TDZ导致插件加载即崩(21.1.5-21.1.7带病); 含小窗视图/自更新落盘/dd读回/源排序"
 }

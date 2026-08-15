@@ -1,9 +1,9 @@
 {
-  "rev": "1.0.2",
-  "jsRev": "21.1.9",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.2.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.2.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.9.b64",
-  "md5": "f334b2d7ef5e2b74e2c1017cbfce7e53",
-  "notes": "插件v21.1.9: 反馈链接改TG群@GUMU51; 诊断包新增引擎日志尾部(含v6诊断行)"
+  "rev": "1.0.3",
+  "jsRev": "21.1.11",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.3.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.3.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.11.b64",
+  "md5": "1bb7b7db6baf78fc22bf53791687c680",
+  "notes": "引擎v1.0.3: 修复v6地址前导零导致归属全失败(v6统计为0根因); 插件v21.1.11: 页脚精简"
 }

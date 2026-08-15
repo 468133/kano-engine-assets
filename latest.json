@@ -1,9 +1,9 @@
 {
-  "rev": "1.0.0",
-  "jsRev": "21.1.1",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.0.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.0r2.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.1.b64",
-  "md5": "50c8ab5a7fe049901f2742f816071631",
-  "notes": "引擎启用独立版本号 v1.0.0(原21.0.3改名,无功能变化); 插件 v21.1.1: 修复引擎模式下刷新间隔设置不生效——引擎模式不再钳制,前端按用户间隔刷新显示(引擎持续统计,数据每5s落盘)"
+  "rev": "1.0.1",
+  "jsRev": "21.1.4",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.1.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.1.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.4.b64",
+  "md5": "08c67b386a90c4884fc7823934ceb8c9",
+  "notes": "引擎 v1.0.1: 修复连接首见把历史字节当新增(重启回填/虚增根因), WAN探测蜂窝口优先(usb0让位sipa_eth0); 插件 v21.1.4: 诊断包复制按钮置顶免滑动, 诊断页按钮不透明度修正, 引擎已最新时跳过部署"
 }

@@ -41,6 +41,7 @@
     const ENGINE_PID = '/data/data/com.minikano.f50_sms/kano_engine.pid';
     const ENGINE_CMD = '/data/data/com.minikano.f50_sms/kano_engine.cmd';
     const ENGINE_LOG = '/data/data/com.minikano.f50_sms/kano_engine.log';
+    const ENGINE_START_TS = '/data/data/com.minikano.f50_sms/kano_engine.start';
     const ENGINE_BOOT_FILE = '/sdcard/ufi_tools_boot.sh';
     const ENGINE_BOOT_LINE = `nohup ${ENGINE_BIN} >>${ENGINE_LOG} 2>&1 &`;
     const ENGINE_MANIFEST_URL = 'https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/latest.json';
@@ -1028,10 +1029,11 @@
             const edown = ed ? (ed.rxBytes || 0) : (h.engLastDown || 0);
             if (typeof h.engBaseUp !== 'number') { h.engBaseUp = eup; h.engBaseDown = edown; }
             if (eup < h.engBaseUp || edown < h.engBaseDown) {
-                const lostUp = Math.max(0, (h.engLastUp || 0) - h.engBaseUp);
-                const lostDown = Math.max(0, (h.engLastDown || 0) - h.engBaseDown);
+                // 引擎计数器归零/重置了，把当前周期累计值完整归档到 total
+                const lostUp = h.curUp || 0;
+                const lostDown = h.curDown || 0;
                 h.totalUp += lostUp; h.totalDown += lostDown;
-                if (lostUp + lostDown > 10 * 1024 * 1024) _log('STATS', `引擎计数重置保留 mac=${d.mac} 保留=${formatBytes(lostUp + lostDown)}`);
+                if (lostUp + lostDown > 10 * 1024 * 1024) _log('STATS', `引擎计数归零保留 mac=${d.mac} 保留=${formatBytes(lostUp + lostDown)}`);
                 h.engBaseUp = 0; h.engBaseDown = 0;
             }
             h.curUp = Math.max(0, eup - h.engBaseUp);
@@ -1708,6 +1710,9 @@
         _logCmd('启动引擎', cmd, r);
         const out = _sh(r);
         if (out.includes('ENGINE_STARTFAIL')) _log('ERR', '引擎启动失败: 进程未存活(可能启动即崩溃), 日志尾部见上条 CMD 输出, 或点「🔍 引擎自检」定位');
+        if (out.includes('ENGINE_STARTED')) {
+            try { await runShellWithRoot(`date +%s > ${ENGINE_START_TS}`); } catch (e) {}
+        }
         return out.includes('ENGINE_RUNNING') || out.includes('ENGINE_STARTED');
     };
 
@@ -3012,7 +3017,7 @@
         const sections = [
             _diagSection('📊 流量统计核心', [
                 _diagItem('统计引擎', engDiagStatus, engDiagDetail),
-                _diagItem('iptables 链', iptStatus, iptDetail),
+                _diagItem('iptables 链', engRunning ? '⚠ 引擎模式（链可选）' : iptStatus, engRunning ? '引擎运行中，不依赖 iptables 计数链' : iptDetail),
                 _diagItem('设备发现', arpStatus, arpDetail),
                 _diagItem('当前总流量', '✓', `${fmtBytes(totalTraffic)} · ${deviceList.length}在线 · ${Object.keys(trafficHistory).length}历史`),
                 _diagItem('IPv6 支持', hasIp6tables ? (enableIPv6 ? '✓ 已启用' : '⚠ 可用但未启用') : '❌ 不可用',
@@ -3040,9 +3045,10 @@
         ];
 
         const persistOk = writeTest || namesExist || historyExist;
-        const summary = chainExists && persistOk
-            ? '<span style="color:#4ade80;font-weight:bold;">✓ 系统正常运行</span>'
-            : chainExists
+        const engRunning = engDiagStatus.startsWith('✓');
+        const summary = (engRunning || chainExists) && persistOk
+            ? '<span style="color:#4ade80;font-weight:bold;">✓ 系统正常运行' + (engRunning ? '（引擎统计模式）</span>' : '</span>')
+            : (engRunning || chainExists)
                 ? '<span style="color:#fbbf24;font-weight:bold;">⚠ 流量统计正常 · 文件存储待确认</span>'
                 : '<span style="color:#f87171;font-weight:bold;">❌ 流量统计异常 · 请检查权限</span>';
 
@@ -3456,13 +3462,19 @@
 
     // 状态栏时钟
     const pluginStartTime = Date.now();
-    const _sbTick = () => {
+    const _sbTick = async () => {
         if (pluginUninstalled) return;
         const tEl = document.querySelector('#kano_sb_time');
         if (tEl) { const n = new Date(); const p2 = (x) => String(x).padStart(2, '0'); tEl.textContent = ICON.time + ' ' + p2(n.getHours()) + ':' + p2(n.getMinutes()) + ':' + p2(n.getSeconds()); }
         const rEl = document.querySelector('#kano_sb_runtime');
-        if (rEl) { 
-            const sec = Math.floor((Date.now() - pluginStartTime) / 1000);
+        if (rEl) {
+            let startTs = pluginStartTime;
+            try {
+                const r = await _shUser(`cat ${ENGINE_START_TS} 2>/dev/null || echo 0`);
+                const engTs = parseInt(_sh(r).trim()) || 0;
+                if (engTs > 0) startTs = engTs * 1000;
+            } catch (e) {}
+            const sec = Math.floor((Date.now() - startTs) / 1000);
             const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60;
             const p2 = (x) => String(x).padStart(2, '0');
             rEl.textContent = ICON.runtime + ' ' + p2(h) + ':' + p2(m) + ':' + p2(s);

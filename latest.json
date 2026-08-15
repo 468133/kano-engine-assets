@@ -1,9 +1,9 @@
 {
   "rev": "1.0.3",
-  "jsRev": "21.1.18",
+  "jsRev": "21.1.19",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.3.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.3.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.18.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.19.b64",
   "md5": "1bb7b7db6baf78fc22bf53791687c680",
-  "notes": "插件v21.1.18: 页脚文字提亮(不透明度过低→.78, 字号10→11)"
+  "notes": "插件v21.1.19: 小UI限速/删除竖排窄列+田字加宽, 分割线左右等距, 页脚移除反馈链接(仅保留设置/诊断内)"
 }

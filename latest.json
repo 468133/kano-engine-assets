@@ -1,9 +1,9 @@
 {
   "rev": "1.0.3",
-  "jsRev": "21.1.13",
+  "jsRev": "21.1.14",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.3.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.3.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.13.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.14.b64",
   "md5": "1bb7b7db6baf78fc22bf53791687c680",
-  "notes": "插件v21.1.13: 页脚彩蛋改随机文案(三档各4条, 文字+颜文字)"
+  "notes": "插件v21.1.14: 小UI去信号格+分界线移到1/2; 限速删除按钮三档同尺寸; 页脚彩蛋每档24条"
 }

@@ -1,9 +1,9 @@
 {
-  "rev": "21.0.3",
-  "jsRev": "21.0.9",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v21.0.3.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v21.0.3.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.0.9.b64",
-  "md5": "92b726afb9d8bbeefe57b4f2795a0261",
-  "notes": "插件 v21.0.9: 真·离线归档(守护到点快照+按设备精确扣减重计), 多端同时打开写盘合并防互相覆盖丢数据"
+  "rev": "1.0.0",
+  "jsRev": "21.1.1",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.0.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.0.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.1.b64",
+  "md5": "50c8ab5a7fe049901f2742f816071631",
+  "notes": "引擎启用独立版本号 v1.0.0(原21.0.3改名,无功能变化); 插件 v21.1.1: 修复引擎模式下刷新间隔设置不生效——引擎模式不再钳制,前端按用户间隔刷新显示(引擎持续统计,数据每5s落盘)"
 }

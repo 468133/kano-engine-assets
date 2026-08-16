@@ -1,9 +1,9 @@
 {
-  "rev": "1.0.4",
+  "rev": "1.0.5",
   "jsRev": "21.1.21",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.4.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.4.b64",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.5.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.5.b64",
   "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.21.b64",
-  "md5": "18027fa08326236b35677195818d0dcd",
-  "notes": "插件v21.1.21: 假数据自检拆两段执行(下载+后台启动即返回/15s后读结果), 修复宿主shell超时导致signal aborted; 复制按钮加临时textarea兜底, 修复剪贴板API被拒时复制失败; connType确认由插件接入信息优先合并(引擎JSON该字段仅诊断用)。引擎仍为v1.0.4: IP→MAC持久归属缓存, updatedAt时区修正, --test离线自检"
+  "md5": "6e64534ec34f1d02d7ecb6e863d32f58",
+  "notes": "引擎v1.0.5: 修复v1.0.4云端包体自相矛盾(b64内二进制md5=51cb...与部署脚本期望18027...不一致导致MD5不匹配部署失败), 逻辑与v1.0.4相同仅重新打包, 包体md5已双向校验; 插件v21.1.21: 假数据自检拆两段执行避开宿主shell超时, 复制按钮加临时textarea兜底"
 }

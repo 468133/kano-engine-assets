@@ -24,8 +24,9 @@ check() { # check <描述> <期望串> <json>
 runcase() {
   "$BIN" --test "$WORK" 1 >/dev/null 2>&1 & local EPID=$!
   sleep 1
-  # 第二轮前放大字节数(模拟流量增长, 增量才计入)
-  sed -i 's/bytes=1000/bytes=11000/; s/bytes=50000/bytes=150000/; s/bytes=2000/bytes=12000/; s/bytes=80000/bytes=280000/; s/bytes=77804/bytes=177804/; s/bytes=300000/bytes=900000/; s/bytes=150/bytes=300/; s/bytes=450/bytes=900/' "$WORK/nf_conntrack" 2>/dev/null
+  # 第二轮前放大字节数(模拟流量增长, 增量才计入); v1.0.7: 模式带尾部空格锚定,
+  # 防 "bytes=150" 误伤前面刚替换出的 "bytes=150000"(前缀污染曾致 s1 假 FAIL)
+  sed -i 's/bytes=1000 /bytes=11000 /; s/bytes=50000 /bytes=150000 /; s/bytes=2000 /bytes=12000 /; s/bytes=80000 /bytes=280000 /; s/bytes=77804 /bytes=177804 /; s/bytes=300000 /bytes=900000 /; s/bytes=150 /bytes=300 /; s/bytes=450 /bytes=900 /' "$WORK/nf_conntrack" 2>/dev/null
   sleep 2
   kill "$EPID" 2>/dev/null; sleep 1
   cat "$WORK/kano_engine.json" 2>/dev/null
@@ -50,8 +51,9 @@ EOF
 J=$(runcase); echo "$J" | head -c 500; echo
 check "两台设备都归属" '"deviceCount":2' "$J"
 check "v4增量=110600 (设备1:10000+100000, 设备2:150+450)" '"iptTotalV4Bytes":110600' "$J"
-check "v6增量=810000 (前导零地址规范化+缓存归属)" '"iptTotalV6Bytes":810000' "$J"
-check "总增量=920600" '"iptTotalBytes":920600' "$J"
+check "v6增量=910000 (前导零地址规范化+缓存归属, L2:210000+L6:700000)" '"iptTotalV6Bytes":910000' "$J"
+check "总增量=1020600" '"iptTotalBytes":1020600' "$J"
+check "缓存兜底设备v4地址回填(v1.0.7)" '"ip":"192.168.0.100"' "$J"
 if echo "$J" | grep -q '10\.0\.0\.180"'; then echo "  FAIL: 本机代理流量被错误统计"; FAIL=$((FAIL+1)); else echo "  PASS: 本机代理流量未统计"; PASS=$((PASS+1)); fi
 if echo "$J" | grep -q '224\.0\.0\.251'; then echo "  FAIL: 组播流量被错误统计"; FAIL=$((FAIL+1)); else echo "  PASS: 组播流量未统计"; PASS=$((PASS+1)); fi
 
@@ -84,12 +86,12 @@ ipv4     2 tcp      6 431999 ESTABLISHED src=192.168.0.101 dst=142.250.66.14 spo
 EOF
 KANO_DROP_IDLE=1 "$BIN" --test "$WORK" 1 >/dev/null 2>&1 & EPID=$!
 sleep 1
-sed -i 's/bytes=1000/bytes=11000/; s/bytes=50000/bytes=150000/' "$WORK/nf_conntrack"
+sed -i 's/bytes=1000 /bytes=11000 /; s/bytes=50000 /bytes=150000 /' "$WORK/nf_conntrack"
 echo "192.168.0.101 aa:bb:cc:00:00:02" > "$WORK/neigh"   # A(192.168.0.100) 掉线
 sleep 1
-sed -i 's/bytes=11000/bytes=21000/; s/bytes=150000/bytes=250000/' "$WORK/nf_conntrack"
+sed -i 's/bytes=11000 /bytes=21000 /; s/bytes=150000 /bytes=250000 /' "$WORK/nf_conntrack"
 sleep 1   # 本轮 A idle 超阈值被移出, B 从槽1换到槽0, ipmap 必须先删后建
-sed -i 's/bytes=21000/bytes=31000/; s/bytes=250000/bytes=350000/' "$WORK/nf_conntrack"
+sed -i 's/bytes=21000 /bytes=31000 /; s/bytes=250000 /bytes=350000 /' "$WORK/nf_conntrack"
 sleep 2
 kill "$EPID" 2>/dev/null; sleep 1
 J=$(cat "$WORK/kano_engine.json" 2>/dev/null); echo "$J" | head -c 400; echo
@@ -109,8 +111,8 @@ ipv4     2 tcp      6 431999 ESTABLISHED src=192.168.0.102 dst=142.250.66.14 spo
 ipv6     10 tcp      6 96 TIME_WAIT src=2409:8d3c:0310:0222:0000:0000:0000:0102 dst=2606:4700:0000:0000:0000:0000:6811:d005 sport=42362 dport=443 packets=15 bytes=2000 src=2606:4700:0000:0000:0000:0000:6811:d005 dst=2409:8d3c:0310:0222:0000:0000:0000:0102 sport=443 dport=42362 packets=20 bytes=80000 [ASSURED] mark=0 use=1
 EOF
 J=$(runcase); echo "$J" | head -c 500; echo
-check "缓存兜底设备标记在线" '"online":true' "$J"
-check "v4地址已回填" '"ip":"192.168.0.102"' "$J"
+check "缓存兜底设备有增量后上线过(JSON含该设备)" 'aa:bb:cc:00:00:03' "$J"
+check "v4地址已回填且保留(v1.0.7)" '"ip":"192.168.0.102"' "$J"
 check "v6地址(前导零规范化)已进ip6s" '2409:8d3c:310:222::102' "$J"
 check "总增量=320000 (v4:110000 + v6:210000)" '"iptTotalBytes":320000' "$J"
 

@@ -1,9 +1,9 @@
 {
-  "rev": "1.0.6",
-  "jsRev": "21.1.22",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.6.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.6.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.22.b64",
-  "md5": "687df7b742ab7b19d8203c2966ecc201",
-  "notes": "引擎v1.0.6(假数据代码审查+回归): 修复rebuild_devices交换删除后ipmap仍按旧索引归属(掉线设备触发, 当轮流量计入越界槽位→deviceTotal<iptTotal); 缓存兜底设备有流量即标记在线+回填ip/ip6s(防插件过滤online=false致活跃设备消失); ip/ip6s每轮清旧重填(v6轮换不留过期地址); 自检模式不写真实acct、支持neigh文件与KANO_DROP_IDLE; fixtures新增s3移出交换/s4邻居GC回归。插件v21.1.22: 假数据自检防重复点击重跑+脚本缓存复用+结果不完整提示"
+  "rev": "1.0.7",
+  "jsRev": "21.1.23",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.7.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.7.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.23.b64",
+  "md5": "1aeb30f8b6018833df3f673b2d5d3fc7",
+  "notes": "引擎v1.0.7: ip/ip6s仅在实时邻居命中时清旧重填, 缓存兜底设备保留回填地址(修v1.0.6无增量轮JSON空IP/离线闪烁); fixtures修sed前缀污染(bytes=150误伤bytes=150000)与v6期望值(910000/总1020600), s1新增IP回填断言, s4改断言设备存在+回填保留。插件v21.1.23: 假数据自检读结果等待15s→25s(4组用例全程约18s)。代理开关不影响fixtures(全合成数据)"
 }

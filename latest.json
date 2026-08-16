@@ -1,9 +1,9 @@
 {
   "rev": "1.0.4",
-  "jsRev": "21.1.20",
+  "jsRev": "21.1.21",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.4.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.4.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.20.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.21.b64",
   "md5": "18027fa08326236b35677195818d0dcd",
-  "notes": "引擎v1.0.4: IP→MAC持久归属缓存(邻居表GC/v6临时地址轮换兜底,修复deviceTotal远小于iptTotal), updatedAt时区修正, --test离线自检; 插件v21.1.20: 小UI分割线连续/左区加宽/速度一行显示, 彩蛋档位修正, 引擎自检加复制按钮, kanoMock假数据自检(禁落盘防污染)"
+  "notes": "插件v21.1.21: 假数据自检拆两段执行(下载+后台启动即返回/15s后读结果), 修复宿主shell超时导致signal aborted; 复制按钮加临时textarea兜底, 修复剪贴板API被拒时复制失败; connType确认由插件接入信息优先合并(引擎JSON该字段仅诊断用)。引擎仍为v1.0.4: IP→MAC持久归属缓存, updatedAt时区修正, --test离线自检"
 }

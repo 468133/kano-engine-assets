@@ -1,9 +1,9 @@
 {
-  "rev": "1.0.5",
-  "jsRev": "21.1.21",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.5.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.5.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.21.b64",
-  "md5": "6e64534ec34f1d02d7ecb6e863d32f58",
-  "notes": "引擎v1.0.5: 修复v1.0.4云端包体自相矛盾(b64内二进制md5=51cb...与部署脚本期望18027...不一致导致MD5不匹配部署失败), 逻辑与v1.0.4相同仅重新打包, 包体md5已双向校验; 插件v21.1.21: 假数据自检拆两段执行避开宿主shell超时, 复制按钮加临时textarea兜底"
+  "rev": "1.0.6",
+  "jsRev": "21.1.22",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.6.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.6.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.22.b64",
+  "md5": "687df7b742ab7b19d8203c2966ecc201",
+  "notes": "引擎v1.0.6(假数据代码审查+回归): 修复rebuild_devices交换删除后ipmap仍按旧索引归属(掉线设备触发, 当轮流量计入越界槽位→deviceTotal<iptTotal); 缓存兜底设备有流量即标记在线+回填ip/ip6s(防插件过滤online=false致活跃设备消失); ip/ip6s每轮清旧重填(v6轮换不留过期地址); 自检模式不写真实acct、支持neigh文件与KANO_DROP_IDLE; fixtures新增s3移出交换/s4邻居GC回归。插件v21.1.22: 假数据自检防重复点击重跑+脚本缓存复用+结果不完整提示"
 }

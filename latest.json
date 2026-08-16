@@ -1,10 +1,10 @@
 {
   "rev": "1.0.7",
-  "jsRev": "21.1.24",
+  "jsRev": "21.1.26",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.7.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.7.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.24.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.26.b64",
   "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.7.sh",
   "md5": "1aeb30f8b6018833df3f673b2d5d3fc7",
-  "notes": "插件v21.1.24: fixtures脚本改按清单fixtures字段版本化命名拉取(避开CDN@main缓存旧脚本导致断言文案/期望值过期)。引擎v1.0.7: ip/ip6s仅实时邻居命中时清旧重填, 缓存兜底设备保留回填地址。fixtures v1.0.7: sed空格锚定修前缀污染, v6期望值910000/总1020600, s1新增IP回填断言, s3交换删除回归真机已PASS"
+  "notes": "插件v21.1.26: 小UI布局重构(上传/下载统计与速度上下两行显示、总量在进度条上方、百分比在进度条右侧、分割线右移、设备区加宽)，上传/下载速度颜色与统计一致(绿/蓝)，彻底修复彩蛋串档，隐藏MAC/信号列残留。引擎v1.0.7: 保持不变。"
 }

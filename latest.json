@@ -1,9 +1,10 @@
 {
   "rev": "1.0.7",
-  "jsRev": "21.1.23",
+  "jsRev": "21.1.24",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.7.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.7.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.23.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.24.b64",
+  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.7.sh",
   "md5": "1aeb30f8b6018833df3f673b2d5d3fc7",
-  "notes": "引擎v1.0.7: ip/ip6s仅在实时邻居命中时清旧重填, 缓存兜底设备保留回填地址(修v1.0.6无增量轮JSON空IP/离线闪烁); fixtures修sed前缀污染(bytes=150误伤bytes=150000)与v6期望值(910000/总1020600), s1新增IP回填断言, s4改断言设备存在+回填保留。插件v21.1.23: 假数据自检读结果等待15s→25s(4组用例全程约18s)。代理开关不影响fixtures(全合成数据)"
+  "notes": "插件v21.1.24: fixtures脚本改按清单fixtures字段版本化命名拉取(避开CDN@main缓存旧脚本导致断言文案/期望值过期)。引擎v1.0.7: ip/ip6s仅实时邻居命中时清旧重填, 缓存兜底设备保留回填地址。fixtures v1.0.7: sed空格锚定修前缀污染, v6期望值910000/总1020600, s1新增IP回填断言, s3交换删除回归真机已PASS"
 }

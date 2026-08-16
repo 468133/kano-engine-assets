@@ -1,9 +1,9 @@
 {
-  "rev": "1.0.3",
-  "jsRev": "21.1.19",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.3.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.3.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.19.b64",
-  "md5": "1bb7b7db6baf78fc22bf53791687c680",
-  "notes": "插件v21.1.19: 小UI限速/删除竖排窄列+田字加宽, 分割线左右等距, 页脚移除反馈链接(仅保留设置/诊断内)"
+  "rev": "1.0.4",
+  "jsRev": "21.1.20",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.4.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.4.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.20.b64",
+  "md5": "51cb486a78f286890dd973df24a47a62",
+  "notes": "引擎v1.0.4: IP→MAC持久归属缓存(邻居表GC/v6临时地址轮换兜底,修复deviceTotal远小于iptTotal), updatedAt时区修正, --test离线自检; 插件v21.1.20: 小UI分割线连续/左区加宽/速度一行显示, 彩蛋档位修正, 引擎自检加复制按钮, kanoMock假数据自检(禁落盘防污染)"
 }

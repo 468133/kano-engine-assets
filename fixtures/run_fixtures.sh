@@ -1,6 +1,7 @@
 #!/bin/sh
 # kano_engine 离线自检(自包含版, 单文件) —— 在路由器上以 root 运行, 不碰真实统计
-# v1.0.6: 新增 s3 移出交换归属回归 / s4 邻居GC后活跃设备在线与IP回填回归; 各用例提速
+# v1.0.6: s3 移出交换归属回归 / s4 邻居GC后活跃设备在线与IP回填回归
+# v1.0.8: s5 差额归因回归(EUI-64反推MAC / 本机WAN消耗ctLocal / 未归属unattr+unattribTop)
 # 用法: sh run_fixtures.sh [引擎路径]
 BIN="${1:-/data/data/com.minikano.f50_sms/kano_engine}"
 WORK=/data/local/tmp/kano_fixture_run
@@ -12,6 +13,9 @@ mkcase() { # mkcase <目录名>
   : > "$WORK/neigh"   # v1.0.6: 实时邻居表(一行 "ip mac"), 默认空
   cat > "$WORK/local_ips" <<'EOF'
 192.168.0.1
+10.0.0.180
+EOF
+  cat > "$WORK/wan_ips" <<'EOF'
 10.0.0.180
 EOF
 }
@@ -26,7 +30,8 @@ runcase() {
   sleep 1
   # 第二轮前放大字节数(模拟流量增长, 增量才计入); v1.0.7: 模式带尾部空格锚定,
   # 防 "bytes=150" 误伤前面刚替换出的 "bytes=150000"(前缀污染曾致 s1 假 FAIL)
-  sed -i 's/bytes=1000 /bytes=11000 /; s/bytes=50000 /bytes=150000 /; s/bytes=2000 /bytes=12000 /; s/bytes=80000 /bytes=280000 /; s/bytes=77804 /bytes=177804 /; s/bytes=300000 /bytes=900000 /; s/bytes=150 /bytes=300 /; s/bytes=450 /bytes=900 /' "$WORK/nf_conntrack" 2>/dev/null
+  # v1.0.8: 追加 s5 用值(500/9000 本机WAN, 700/3500 未归属v4, 60/240 未归属v6)
+  sed -i 's/bytes=1000 /bytes=11000 /; s/bytes=50000 /bytes=150000 /; s/bytes=2000 /bytes=12000 /; s/bytes=80000 /bytes=280000 /; s/bytes=77804 /bytes=177804 /; s/bytes=300000 /bytes=900000 /; s/bytes=150 /bytes=300 /; s/bytes=450 /bytes=900 /; s/bytes=500 /bytes=5500 /; s/bytes=9000 /bytes=19000 /; s/bytes=700 /bytes=7700 /; s/bytes=3500 /bytes=38500 /; s/bytes=60 /bytes=660 /; s/bytes=240 /bytes=2640 /' "$WORK/nf_conntrack" 2>/dev/null
   sleep 2
   kill "$EPID" 2>/dev/null; sleep 1
   cat "$WORK/kano_engine.json" 2>/dev/null
@@ -54,6 +59,7 @@ check "v4增量=110600 (设备1:10000+100000, 设备2:150+450)" '"iptTotalV4Byte
 check "v6增量=910000 (前导零地址规范化+缓存归属, L2:210000+L6:700000)" '"iptTotalV6Bytes":910000' "$J"
 check "总增量=1020600" '"iptTotalBytes":1020600' "$J"
 check "缓存兜底设备v4地址回填(v1.0.7)" '"ip":"192.168.0.100"' "$J"
+check "本机WAN消耗计入ctLocal=15000(v1.0.8, 不进设备)" '"ctLocalBytes":15000' "$J"
 if echo "$J" | grep -q '10\.0\.0\.180"'; then echo "  FAIL: 本机代理流量被错误统计"; FAIL=$((FAIL+1)); else echo "  PASS: 本机代理流量未统计"; PASS=$((PASS+1)); fi
 if echo "$J" | grep -q '224\.0\.0\.251'; then echo "  FAIL: 组播流量被错误统计"; FAIL=$((FAIL+1)); else echo "  PASS: 组播流量未统计"; PASS=$((PASS+1)); fi
 
@@ -70,6 +76,7 @@ ipv4     2 udp      17 60 src=192.168.0.101 dst=223.5.5.5 sport=53222 dport=53 p
 EOF
 J=$(runcase); echo "$J" | head -c 300; echo
 check "acct 检测为 0" '"acct":0' "$J"
+check "降级标记 degraded=1(v1.0.8)" '"degraded":1' "$J"
 
 echo "== s3_drop_swap: 零流量设备被移出后, 存活设备归属不串台(v1.0.6回归) =="
 mkcase s3
@@ -115,6 +122,31 @@ check "缓存兜底设备有增量后上线过(JSON含该设备)" 'aa:bb:cc:00:0
 check "v4地址已回填且保留(v1.0.7)" '"ip":"192.168.0.102"' "$J"
 check "v6地址(前导零规范化)已进ip6s" '2409:8d3c:310:222::102' "$J"
 check "总增量=320000 (v4:110000 + v6:210000)" '"iptTotalBytes":320000' "$J"
+
+echo "== s5_attrib_gap: EUI-64反推 / 本机WAN消耗 / 未归属记账(v1.0.8) =="
+mkcase s5
+cat > "$WORK/neigh" <<EOF
+192.168.0.110 aa:bb:cc:00:00:10
+2409:8d3c:310:222::110 aa:bb:cc:00:00:10
+EOF
+cat > "$WORK/nf_conntrack" <<'EOF'
+ipv4     2 tcp      6 431999 ESTABLISHED src=192.168.0.110 dst=142.250.66.14 sport=51234 dport=443 packets=10 bytes=1000 src=142.250.66.14 dst=10.0.0.180 sport=443 dport=51234 packets=12 bytes=50000 [ASSURED] mark=0 use=1
+ipv6     10 tcp      6 431998 ESTABLISHED src=2409:8d3c:0310:0222:8abc:ccff:fe00:0011 dst=2606:4700:0000:0000:0000:0000:6811:d005 sport=42362 dport=443 packets=15 bytes=2000 src=2606:4700:0000:0000:0000:0000:6811:d005 dst=2409:8d3c:0310:0222:8abc:ccff:fe00:0011 sport=443 dport=42362 packets=20 bytes=80000 [ASSURED] mark=0 use=1
+ipv4     2 tcp      6 300 ESTABLISHED src=10.0.0.180 dst=142.250.66.14 sport=40000 dport=443 packets=5 bytes=500 src=142.250.66.14 dst=10.0.0.180 sport=443 dport=40000 packets=6 bytes=9000 [ASSURED] mark=0 use=1
+ipv4     2 udp      17 60 src=192.168.0.200 dst=8.8.8.8 sport=53222 dport=53 packets=2 bytes=700 src=8.8.8.8 dst=10.0.0.180 sport=53 dport=53222 packets=2 bytes=3500 [ASSURED] mark=0 use=1
+ipv6     10 udp      17 60 src=2409:9999:0000:0000:0000:0000:0000:0001 dst=2409:8d3c:0310:0222:9999:0000:0000:5555 sport=1111 dport=2222 packets=2 bytes=60 src=2409:8d3c:0310:0222:9999:0000:0000:5555 dst=2409:9999:0000:0000:0000:0000:0000:0001 sport=2222 dport=1111 packets=2 bytes=240 [ASSURED] mark=0 use=1
+EOF
+J=$(runcase); echo "$J" | head -c 700; echo
+check "邻居设备+EUI-64设备共2台" '"deviceCount":2' "$J"
+check "EUI-64反推MAC归属(ff:fe → 88:bc:cc:00:00:11)" '88:bc:cc:00:00:11' "$J"
+check "EUI-64设备地址回填进ip6s" '2409:8d3c:310:222:8abc:ccff:fe00:11' "$J"
+check "已归属合计=320000 (A-v4:110000 + EUI-v6:210000)" '"iptTotalBytes":320000' "$J"
+check "本机WAN消耗=15000 (5000上+10000下)" '"ctLocalBytes":15000' "$J"
+check "本机WAN上行=5000" '"ctLocalTxBytes":5000' "$J"
+check "未归属合计=45000 (v4:42000 + 入向v6:3000)" '"unattrBytes":45000' "$J"
+check "未归属上行=9400 下行=35600" '"unattrTxBytes":9400,"unattrRxBytes":35600' "$J"
+check "未归属TOP含192.168.0.200" '"ip":"192.168.0.200","bytes":42000' "$J"
+check "未归属TOP含入向v6的LAN侧地址(前导零已规范化)" '"ip":"2409:8d3c:310:222:9999::5555","bytes":3000' "$J"
 
 echo
 echo "== 结果: PASS=$PASS FAIL=$FAIL =="

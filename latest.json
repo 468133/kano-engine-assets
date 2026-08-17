@@ -1,10 +1,10 @@
 {
-  "rev": "1.0.7",
-  "jsRev": "21.1.26",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.7.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.7.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.26.b64",
-  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.7.sh",
-  "md5": "1aeb30f8b6018833df3f673b2d5d3fc7",
-  "notes": "插件v21.1.26: 小UI布局重构(上传/下载统计与速度上下两行显示、总量在进度条上方、百分比在进度条右侧、分割线右移、设备区加宽)，上传/下载速度颜色与统计一致(绿/蓝)，彻底修复彩蛋串档，隐藏MAC/信号列残留。引擎v1.0.7: 保持不变。"
+  "rev": "1.0.8",
+  "jsRev": "21.1.27",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.8.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.8.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.27.b64",
+  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.8.sh",
+  "md5": "551b5db023d4d1920e01b9caf0c21563",
+  "notes": "引擎v1.0.8: 差额归因 —— 本机WAN消耗单独记账(ctLocal)、归属失败记账(unattr)+TOP8地址清单、EUI-64地址反推MAC即时归属、未归属地址主动ND/ARP探测追认、acct写后回读验证(失败标记降级)、v6前缀漂移日志、每5分钟周期自检日志。插件v21.1.27: 总览新增系统增量/未归属行(点击查看归因明细弹窗+TOP地址)、降级统计标记、引擎页新增本机消耗/未归属/口径外残余三项。"
 }

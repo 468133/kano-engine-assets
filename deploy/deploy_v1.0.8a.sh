@@ -40,7 +40,7 @@ m=$(md5sum "$BIN.new" 2>/dev/null | awk '{print $1}')
 # 3. 就位 + 版本标记
 chmod 777 "$BIN.new"
 mv -f "$BIN.new" "$BIN"
-printf '%s' '1.0.7' > "$VER"
+printf '%s' '1.0.8' > "$VER"
 
 # 4. 开启 conntrack 记账
 printf '1' > /proc/sys/net/netfilter/nf_conntrack_acct 2>/dev/null

@@ -1,10 +1,10 @@
 {
-  "rev": "1.0.9",
-  "jsRev": "21.1.33",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.9.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.9.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.33.b64",
-  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.8.sh",
-  "md5": "afeaaae28ddc74736e45c185424dd724",
-  "notes": "引擎v1.0.9: 按日台账(traffic_daily, 引擎按设备逐日记账, 保留60天, 前端未打开也有每日数据) + 引擎持久累计(traffic_engine_stats, 设备重启后累计口径不归零, 插件重开自动差分补录, 前端关闭期间流量不再丢) + reset同步清零台账 + acct每5分钟自动重试(内核模块晚加载/重启后自愈, 不再永久降级) + 台账每60秒细粒度落盘。插件v21.1.33: 总上行/总下行合并为一个卡片(上行/下行双列, 小UI田字格由5格变整齐2x2); 大UI系统增量改为明细表格(系统增量WAN口/设备合计/路由器自身/未归属, ↑↓合计三列, 点击仍可看差额归因弹窗), 小UI保持单行简洁; 数据安全不变(引擎后台持久化台账+差分补录, 前端关闭/设备重启不丢)。插件v21.1.32: 修复趋势页「按日」按钮无反应(非按日分支漏绑事件); 修复排行自定义日期弹窗「取消」按钮无反应(缺onClose)且起止日期改两行布局; 历史详情/排行表头对齐+防折行。插件v21.1.31: 修复小UI/中UI多色百分条不显示(seenToday判断改为只有台账确有今日数据才算见过今天, 旧引擎/无台账自动降级为今日单色段; 田字小UI取消CSS隐藏也显示按日多色条); 归档可选时间段(当前周期/近7天/自定义起止日期, 按日台账汇总历史任意区间); 流量排行新增日期筛选(全部/今日/近7天/近30天/自定义)且字体调小; 页脚彩蛋切标签页不再重抽(仅换UI档位重抽, 杜绝串档)且每档扩充到30条幽默文案; 新按钮图标统一几何符号体系与全插件一致; 整体微美化(行hover/统一圆角)。插件v21.1.30: 发布单行base64无换行, 旧版本(v21.1.6~v21.1.29)读回误报判断不再触发, 老设备可直接自更新升级。插件v21.1.28: 修复差额归因弹窗点击无反应; 自动归档宽松判定+守护自维护调度+缺失日报从引擎台账补生成; 设置同步设备文件多前端共享; 设备行按日分段多色条; 今日流量卡片; 按日视图; 引擎降级明细; 增量渲染省CPU。deploy_v1.0.9: MD5=afeaaae28ddc74736e45c185424dd724 已注入并重新生成 b64, 可直接发布。"
+  "rev": "1.0.10",
+  "jsRev": "21.1.34",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.10.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.10.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.34.b64",
+  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.10.sh",
+  "md5": "768876a8ec426be46b2c34df3cb659fe",
+  "notes": "引擎v1.0.10: 修复 --test 离线自检模式把假数据台账/累计写到真实路径的 bug(此前跑自检会污染真机 traffic_daily/traffic_engine_stats, 现自检改写测试目录); fixtures 新增 s6 台账/累计持久回归(落盘 + 累计恢复 + 重启差分不重复)。引擎v1.0.9: 按日台账(traffic_daily, 引擎按设备逐日记账, 保留60天, 前端未打开也有每日数据) + 引擎持久累计(traffic_engine_stats, 设备重启后累计口径不归零, 插件重开自动差分补录, 前端关闭期间流量不再丢) + reset同步清零台账 + acct每5分钟自动重试(内核模块晚加载/重启后自愈, 不再永久降级) + 台账每60秒细粒度落盘。插件v21.1.34: 新增「账目核对」一键自校验(引擎页按钮)——三层对账: ①引擎自洽(系统增量=设备合计+路由器自身+未归属, 平账差显化) ②今日流量三口径(引擎台账/日报快照/总览卡片)互相印证 ③UT外部基准(填UT今日流量对比系统增量, 同源WAN口); 假数据自检扩展: kanoMockDays=N 注入近30天随机台账(趋势按日/归档区间/排行日期筛选/多色条可在开发期自测历史路径); 运行错误埋点: 全局 error/unhandledrejection 自动进 localStorage 队列, 引擎页底部显示最近错误; 发布配套 kano_engine/dist/check.sh 静态检查脚本(按钮id↔事件绑定交叉比对抓漏绑/所有createModal必须带onClose/括号状态机/版本号三处一致)。插件v21.1.33: 总上行/总下行合并为一个卡片(双列, 小UI田字格2x2整齐); 大UI系统增量改为明细表格(设备合计/路由器自身/未归属, ↑↓合计三列), 小UI保持单行。插件v21.1.32: 修复趋势页「按日」按钮无反应; 修复排行自定义日期弹窗「取消」无反应且改两行布局; 表头对齐+防折行。插件v21.1.31: 修复小UI/中UI多色百分条不显示; 归档可选时间段; 排行日期筛选; 彩蛋切tab不重抽/每档30条; 图标统一几何符号。插件v21.1.30: 单行base64无换行, 根治旧版读回误报。插件v21.1.28: 差额归因弹窗修复; 自动归档+日报补生成; 设置多前端共享; 按日视图; 增量渲染省CPU。"
 }

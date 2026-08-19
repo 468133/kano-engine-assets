@@ -1,5 +1,5 @@
 #!/system/bin/sh
-# kano_engine 云端部署脚本 v1.0.9 —— KANO_TRAFFIC 插件兜底路径(设备侧直连)执行
+# kano_engine 云端部署脚本 v1.0.10 —— KANO_TRAFFIC 插件兜底路径(设备侧直连)执行
 # 由插件 base64 -d 后以 sh 运行; 不依赖 set -e(busybox 兼容性), 每步显式判断
 # v1.0.9: 按日台账(traffic_daily) + 引擎持久累计(traffic_engine_stats) + acct 每5分钟重试
 DIR=/data/data/com.minikano.f50_sms
@@ -7,7 +7,7 @@ BIN=$DIR/kano_engine
 VER=$DIR/kano_engine.ver
 PID=$DIR/kano_engine.pid
 CURL=$DIR/files/curl
-MD5="afeaaae28ddc74736e45c185424dd724"
+MD5="768876a8ec426be46b2c34df3cb659fe"
 BOOT=/sdcard/ufi_tools_boot.sh
 BOOTLINE="nohup $BIN >>$DIR/kano_engine.log 2>&1 &"
 
@@ -17,14 +17,14 @@ C=curl
 # 1. 下载 base64 并解码(国内镜像 + jsDelivr 4节点 + GitHub 代理 2节点轮询, 防单源被阻断)
 ok=0
 for U in \
-  "https://cdn.jsdmirror.com/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.9.b64" \
-  "https://jsd.onmicrosoft.cn/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.9.b64" \
-  "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.9.b64" \
-  "https://fastly.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.9.b64" \
-  "https://gcore.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.9.b64" \
-  "https://testingcf.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.9.b64" \
-  "https://ghfast.top/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v1.0.9.b64" \
-  "https://ghproxy.net/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v1.0.9.b64" \
+  "https://cdn.jsdmirror.com/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.10.b64" \
+  "https://jsd.onmicrosoft.cn/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.10.b64" \
+  "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.10.b64" \
+  "https://fastly.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.10.b64" \
+  "https://gcore.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.10.b64" \
+  "https://testingcf.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.10.b64" \
+  "https://ghfast.top/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v1.0.10.b64" \
+  "https://ghproxy.net/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v1.0.10.b64" \
 ; do
     "$C" -fsSL --connect-timeout 8 --max-time 30 "$U" -o "$DIR/.ke.b64" && [ -s "$DIR/.ke.b64" ] && { ok=1; break; }
 done

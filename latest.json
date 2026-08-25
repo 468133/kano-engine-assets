@@ -1,10 +1,10 @@
 {
   "rev": "1.0.14",
-  "jsRev": "21.1.43",
+  "jsRev": "21.1.44",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.14.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.14.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.43.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.44.b64",
   "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.14.sh",
   "md5": "ba9eeda71c46538cc20b1f929ee82c52",
-  "notes": "引擎v1.0.14: WAN计数器归零补偿——设备重启后今日流量不丢(0点基线加off字段, 需配合插件v21.1.43); 修复自检模式台账路径截断(s6/s7回归全过)。插件v21.1.43: 读取引擎归零补偿; 代理检测去误报(只认代理进程/utun·Meta·tun0+网卡/分流路由/TPROXY, 不再被系统自带tun·fwmark·REDIRECT误触)。历史更新说明见 kano_engine/更新计划.md。"
+  "notes": "插件v21.1.44: 代理检测补强——新增代理端口监听(1080/7890-7893/10808/10809)与iptables链名两路证据, 开关代理有区分; 无代理时显示'未发现代理痕迹'。引擎v1.0.14: WAN计数器归零补偿, 设备重启后今日流量不丢。历史更新说明见 kano_engine/更新计划.md。"
 }

@@ -1,10 +1,10 @@
 {
-  "rev": "1.0.17",
-  "jsRev": "21.1.51",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.17.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.17.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.51.b64",
-  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.17.sh",
-  "md5": "d67e967f95c296b97cf748a30c87ad24",
-  "notes": "插件v21.1.51: 修复「检查更新显示旧版」(真机: 显示1.0.14/21.1.46, 实际已发1.0.17/21.1.50) —— jsdmirror/onmicrosoft 无purge缓存数天却排CDN候选最前+浏览器侧Promise.any竞速快而旧的赢+粘性源记忆置顶旧源, 三叠加致清单过期; 现 latest.json 只走 GitHub代理+jsDelivr系(均可purge)且按顺序取不竞速不粘源。插件v21.1.50: 区间归档重计后已归档的天从排行/按日趋势/多色条移除(引擎v1.0.17新增deldays按天删台账+插件archivedDays持久化过滤兜底)。历史更新说明见 kano_engine/更新计划.md。"
+  "rev": "1.0.18",
+  "jsRev": "21.1.52",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.18.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.18.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.52.b64",
+  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.18.sh",
+  "md5": "d9f2bc79c920d0e4146e16dc9141fe7b",
+  "notes": "插件v21.1.52+引擎v1.0.18: ① 修复归档重计后归因表「设备合计 > WAN总流量」的窗口错位(引擎新增同窗口计数器 devDelta/ctLocalDelta, 与sysDelta同为归档窗口, 旧引擎自动回退老口径); ② 设备趋势「按日明细」扩为全历史(与排行「全部」同集合, 横向滑动, 金色归档聚合柱), 「按归档」末尾加「● 当前(进行中)」点; ③ 总览卡片加口径小字标注(今天0点起/本周期归档重计起); ④ 历史页顶部加「数据覆盖」清单(台账日期范围/归档条数/当前周期起点); ⑤ 维护工具新增「清理异常键」(扫描非MAC格式脏键如IPv6地址串, 列清单确认后删除)。历史更新说明见 kano_engine/更新计划.md。"
 }

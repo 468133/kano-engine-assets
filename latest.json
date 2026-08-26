@@ -1,10 +1,10 @@
 {
-  "rev": "1.0.15",
-  "jsRev": "21.1.48",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.15.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.15.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.48.b64",
-  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.15.sh",
-  "md5": "0f0f7b5f413904f0663ff3b2bfa9969e",
-  "notes": "插件v21.1.48: ①归档/排行自定义时间段改日期选择器(上限=今天); ②区间归档的重计改为只扣除该区间流量, 截止日后统计保留(引擎差分基线+台账入账基线同步抬高防回弹防复活, 同区间重扣守卫), iptables模式降级仅归档; 区间快照不挂WAN系统增量(口径不符); ③流量排行加「◉ 系统增量(WAN全设备)」行, 设备趋势加WAN伪设备(按归档口径); ④诊断页明细默认折叠, 异常自动展开; ⑤修复台账日报漏清勾选状态(下标漂移误删)。引擎v1.0.15: 重启后降级约1分钟内自愈。历史更新说明见 kano_engine/更新计划.md。"
+  "rev": "1.0.16",
+  "jsRev": "21.1.49",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.16.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.16.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.49.b64",
+  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.16.sh",
+  "md5": "4106bd4de35b7f911ae0cc5c60c565fe",
+  "notes": "插件v21.1.49: ①适配引擎v1.0.16按日台账__wan__伪键(WAN逐日全设备总量), 各求和跳过防双计; ②手动/月报完整归档打full标记, 排行「全部」直加full快照并剔除被覆盖日报快照(修复归档重计后仍显示旧日期流量); ③区间归档挂精确sysDelta(台账逐日WAN求和, 与区间同口径); ④排行/趋势WAN行支持按日口径(旧引擎自动回退); ⑤清除数据/卸载连带清引擎台账+累计+WAN基线+邻居缓存并重启引擎防内存复活; ⑥日报归档改发resetsys keepday保留今天台账(修复凌晨归档点丢0点~归档点流量)。引擎v1.0.16: resetsys连带清按日台账+新增keepday变体+WAN逐日台账__wan__。历史更新说明见 kano_engine/更新计划.md。"
 }

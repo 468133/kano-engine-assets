@@ -1,10 +1,10 @@
 {
   "rev": "1.0.18",
-  "jsRev": "21.1.52",
+  "jsRev": "21.1.53",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.18.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.18.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.52.b64",
-  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.18.sh",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.53.b64",
+  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.19.sh",
   "md5": "d9f2bc79c920d0e4146e16dc9141fe7b",
-  "notes": "插件v21.1.52+引擎v1.0.18: ① 修复归档重计后归因表「设备合计 > WAN总流量」的窗口错位(引擎新增同窗口计数器 devDelta/ctLocalDelta, 与sysDelta同为归档窗口, 旧引擎自动回退老口径); ② 设备趋势「按日明细」扩为全历史(与排行「全部」同集合, 横向滑动, 金色归档聚合柱), 「按归档」末尾加「● 当前(进行中)」点; ③ 总览卡片加口径小字标注(今天0点起/本周期归档重计起); ④ 历史页顶部加「数据覆盖」清单(台账日期范围/归档条数/当前周期起点); ⑤ 维护工具新增「清理异常键」(扫描非MAC格式脏键如IPv6地址串, 列清单确认后删除)。历史更新说明见 kano_engine/更新计划.md。"
+  "notes": "插件v21.1.53+引擎v1.0.18: ① 新增「⇄ 合并同一设备」—— 手机/平板随机MAC每次换地址被记成新设备, 维护工具一键合并(自动建议同名/同IPv6组+手动选择+可撤销), 总览/排行/趋势/列表/归档全部折叠为主设备显示, 原始统计不动; ② 修复已装1.0.18还提示升1.0.17 —— 更新提示改数字版本比较, 云端清单命中旧缓存不再误报; ③ 总览「总上行/总下行」防分行(12px+nowrap); ④ 台账日报徽标「仅归档」改「台账日报」(重计其实照常执行); ⑤ 假数据自检脚本升v1.0.19(事件驱动等待替代固定sleep, FAIL时附带实际值), 插件侧缓存加脚本名比对 —— fixtures升版自动重跑。历史更新说明见 kano_engine/更新计划.md。"
 }

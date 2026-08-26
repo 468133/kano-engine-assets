@@ -1,10 +1,10 @@
 {
   "rev": "1.0.14",
-  "jsRev": "21.1.45",
+  "jsRev": "21.1.46",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.14.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.14.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.45.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.46.b64",
   "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.14.sh",
   "md5": "ba9eeda71c46538cc20b1f929ee82c52",
-  "notes": "插件v21.1.45: 归档快照纳入 WAN 系统增量(与账目核对/UT今日流量同源), 手动/自动/后台补归档均记录, 历史记录展开可见「◉ WAN 系统增量」行; 旧快照无此行不影响。引擎仍为 v1.0.14。历史更新说明见 kano_engine/更新计划.md。"
+  "notes": "插件v21.1.46: 引擎页瘦身——约15行状态明细默认折叠为一行摘要(异常自动展开), 7个维护小按钮与说明文字收进「▸ 维护工具」; 功能全部保留, 彩蛋不受影响。含 v21.1.45: 归档快照纳入 WAN 系统增量。引擎仍为 v1.0.14。历史更新说明见 kano_engine/更新计划.md。"
 }

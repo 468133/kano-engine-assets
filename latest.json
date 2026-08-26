@@ -1,10 +1,10 @@
 {
   "rev": "1.0.17",
-  "jsRev": "21.1.50",
+  "jsRev": "21.1.51",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.17.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.17.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.50.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.51.b64",
   "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.17.sh",
   "md5": "d67e967f95c296b97cf748a30c87ad24",
-  "notes": "插件v21.1.50: 区间归档重计后已归档的天不再出现在排行/按日趋势/设备多色条(真机反馈: 归档25号后当前统计仍显示25号) —— 引擎v1.0.17新增deldays命令按天删台账(插件分批下发), 插件侧archivedDays持久化集合兜底旧引擎, dailyTotalOf/dailyUpDownOf/dailyTot/排行keySet/趋势按日/日报补齐全过滤; 昨天被区间归档过时次日自动日报只重计不生成假日报。引擎v1.0.17: 新增deldays d1,d2,... 按天删台账命令(含v1.0.16全部: resetsys清台账+keepday+WAN逐日__wan__)。历史更新说明见 kano_engine/更新计划.md。"
+  "notes": "插件v21.1.51: 修复「检查更新显示旧版」(真机: 显示1.0.14/21.1.46, 实际已发1.0.17/21.1.50) —— jsdmirror/onmicrosoft 无purge缓存数天却排CDN候选最前+浏览器侧Promise.any竞速快而旧的赢+粘性源记忆置顶旧源, 三叠加致清单过期; 现 latest.json 只走 GitHub代理+jsDelivr系(均可purge)且按顺序取不竞速不粘源。插件v21.1.50: 区间归档重计后已归档的天从排行/按日趋势/多色条移除(引擎v1.0.17新增deldays按天删台账+插件archivedDays持久化过滤兜底)。历史更新说明见 kano_engine/更新计划.md。"
 }

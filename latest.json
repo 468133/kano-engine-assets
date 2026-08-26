@@ -1,10 +1,10 @@
 {
   "rev": "1.0.15",
-  "jsRev": "21.1.47",
+  "jsRev": "21.1.48",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.15.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.15.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.47.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.48.b64",
   "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.15.sh",
   "md5": "0f0f7b5f413904f0663ff3b2bfa9969e",
-  "notes": "引擎v1.0.15: 修复设备重启后永久显示降级统计——acct标志成功分支复位+记账数据出现即自愈+重试提速到约1分钟, 重启后最多约1分钟内自动恢复正常统计, 无需重启引擎。插件v21.1.47: 降级提示文案同步。含 v21.1.46 引擎页瘦身、v21.1.45 归档快照纳入WAN系统增量。历史更新说明见 kano_engine/更新计划.md。"
+  "notes": "插件v21.1.48: ①归档/排行自定义时间段改日期选择器(上限=今天); ②区间归档的重计改为只扣除该区间流量, 截止日后统计保留(引擎差分基线+台账入账基线同步抬高防回弹防复活, 同区间重扣守卫), iptables模式降级仅归档; 区间快照不挂WAN系统增量(口径不符); ③流量排行加「◉ 系统增量(WAN全设备)」行, 设备趋势加WAN伪设备(按归档口径); ④诊断页明细默认折叠, 异常自动展开; ⑤修复台账日报漏清勾选状态(下标漂移误删)。引擎v1.0.15: 重启后降级约1分钟内自愈。历史更新说明见 kano_engine/更新计划.md。"
 }

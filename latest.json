@@ -1,10 +1,10 @@
 {
-  "rev": "1.0.19",
+  "rev": "1.0.20",
   "jsRev": "21.1.53",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.19.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.19.b64",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.20.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.20.b64",
   "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.53.b64",
   "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.19.sh",
-  "md5": "2ae618972fb2297ecc5125db1fda0bf1",
-  "notes": "引擎v1.0.19: 修复「WAN系统增量前端关闭再打开就清零」—— sys_rx/sys_tx(系统增量)与同窗口归因计数器(win_dev/win_loc, v1.0.18新增)此前只在内存, 引擎进程重启即归零(排行WAN行读按日台账不受影响, 与真机现象吻合); 现持久化到 kano_wan_sysdelta(随台账同节奏落盘), 进程重启后自动恢复, 停机期间流量首轮按WAN计数器差补回(计数器归零按全量计), 自检模式豁免(fixtures行为不变)。插件v21.1.53: ①「⇄ 合并同一设备」(随机MAC别名折叠, 维护工具内, 自动建议+手动+可撤销); ② 修复已装1.0.18反提示升旧版(数字版本比较); ③ 总览总上行/总下行防分行; ④ 台账日报徽标改「台账日报」; ⑤ 假数据自检fixtures v1.0.19(事件驱动等待+FAIL带实际值), 脚本升版自动重跑。历史更新说明见 kano_engine/更新计划.md。"
+  "md5": "bf95cc57001358cdf8c4abe2ffa9a2e7",
+  "notes": "引擎v1.0.20: ① 修复「WAN系统增量前端关闭再打开就清零」(v1.0.19 持久化 kano_wan_sysdelta, 进程重启自动恢复, 停机段首轮按计数器差补回); ② 新增台账补种 —— 从旧版升级的首启没有持久化文件, 自动用按日台账 __wan__「今天以前」的历史补回系统增量与同窗口设备合计(排行 WAN 行同源数据, 今天段为避免与日报归档冲突不补, 升级后今天的零头一次性少计)。插件v21.1.53: 合并同一设备(随机MAC)/更新提示数字版本比较/总上下行防分行/台账日报徽标/自检fixtures v1.0.19自动重跑。历史更新说明见 kano_engine/更新计划.md。"
 }

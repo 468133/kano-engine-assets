@@ -1,10 +1,10 @@
 {
-  "rev": "1.0.14",
-  "jsRev": "21.1.46",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.14.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.14.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.46.b64",
-  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.14.sh",
-  "md5": "ba9eeda71c46538cc20b1f929ee82c52",
-  "notes": "插件v21.1.46: 引擎页瘦身——约15行状态明细默认折叠为一行摘要(异常自动展开), 7个维护小按钮与说明文字收进「▸ 维护工具」; 功能全部保留, 彩蛋不受影响。含 v21.1.45: 归档快照纳入 WAN 系统增量。引擎仍为 v1.0.14。历史更新说明见 kano_engine/更新计划.md。"
+  "rev": "1.0.15",
+  "jsRev": "21.1.47",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.15.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.15.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.47.b64",
+  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.15.sh",
+  "md5": "0f0f7b5f413904f0663ff3b2bfa9969e",
+  "notes": "引擎v1.0.15: 修复设备重启后永久显示降级统计——acct标志成功分支复位+记账数据出现即自愈+重试提速到约1分钟, 重启后最多约1分钟内自动恢复正常统计, 无需重启引擎。插件v21.1.47: 降级提示文案同步。含 v21.1.46 引擎页瘦身、v21.1.45 归档快照纳入WAN系统增量。历史更新说明见 kano_engine/更新计划.md。"
 }

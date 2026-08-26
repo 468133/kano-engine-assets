@@ -1,10 +1,10 @@
 {
   "rev": "1.0.20",
-  "jsRev": "21.1.53",
+  "jsRev": "21.1.54",
   "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.20.b64",
   "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.20.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.53.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.54.b64",
   "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.19.sh",
   "md5": "bf95cc57001358cdf8c4abe2ffa9a2e7",
-  "notes": "引擎v1.0.20: ① 修复「WAN系统增量前端关闭再打开就清零」(v1.0.19 持久化 kano_wan_sysdelta, 进程重启自动恢复, 停机段首轮按计数器差补回); ② 新增台账补种 —— 从旧版升级的首启没有持久化文件, 自动用按日台账 __wan__「今天以前」的历史补回系统增量与同窗口设备合计(排行 WAN 行同源数据, 今天段为避免与日报归档冲突不补, 升级后今天的零头一次性少计)。插件v21.1.53: 合并同一设备(随机MAC)/更新提示数字版本比较/总上下行防分行/台账日报徽标/自检fixtures v1.0.19自动重跑。历史更新说明见 kano_engine/更新计划.md。"
+  "notes": "插件v21.1.54: 「清除流量」联动清零引擎 WAN 系统增量(引擎模式发 resetsys, 连带清空按日台账)——旧版只清前端设备统计, 引擎 sysDelta 保持旧值继续累计, 差额归因出现「设备合计≈0、未归属≈整个系统增量」的口径假象, 现在系统增量从清除点重计。引擎v1.0.20: ① 修复「WAN系统增量前端关闭再打开就清零」(v1.0.19 持久化 kano_wan_sysdelta, 进程重启自动恢复, 停机段首轮按计数器差补回); ② 新增台账补种 —— 从旧版升级的首启没有持久化文件, 自动用按日台账 __wan__「今天以前」的历史补回系统增量与同窗口设备合计(排行 WAN 行同源数据, 今天段为避免与日报归档冲突不补, 升级后今天的零头一次性少计)。插件v21.1.53: 合并同一设备(随机MAC)/更新提示数字版本比较/总上下行防分行/台账日报徽标/自检fixtures v1.0.19自动重跑。历史更新说明见 kano_engine/更新计划.md。"
 }

@@ -1,7 +1,10 @@
 //<script>
 (async () => {
     // ============================================================
-    //  设备流量监控插件 v21.1.57 (小UI卡片防拥挤, 适配引擎v1.0.22热修)
+    //  设备流量监控插件 v21.1.58 (在线设备列表按别名组折叠: 合并后同组只显示一行)
+    //  v21.1.58 新增: 修「合并同一设备后统计界面仍显示多行同设备」—— 根因: getTraffic 已按组返回合计
+    //    (所以每行数值一模一样), 但在线列表渲染循环没按主MAC去重, 每个别名各渲染一行。现按别名组折叠,
+    //    代表成员优选 主MAC>有IPv4>有信号, IPv6地址取整组并集, 在线计数同步按组数; 行首加 ⇄N 合并徽标
     //  v21.1.57 新增: 小UI(超窄屏)总览卡片防拥挤 —— 标题缩9px、数值缩11px、隐藏第三行小字注释、
     //    双值间距收紧(田字格2x2在小窗下不再挤); 配合引擎v1.0.22热修版(修v1.0.21发布事故: 版本串/deploy b64/MD5)
     //  v21.1.53 新增: ① 「⇄ 合并同一设备」—— 手机/平板随机MAC(本地管理位)每次变MAC就被当成新设备,
@@ -110,7 +113,7 @@
     window.addEventListener('error', (e) => _pushErr('error', e.message || 'unknown', (e.filename || '') + ':' + (e.lineno || '')));
     window.addEventListener('unhandledrejection', (e) => _pushErr('reject', ((e.reason && (e.reason.message || e.reason)) || 'unhandledrejection') + '', ''));
 
-    const PLUGIN_VERSION = '21.1.57';
+    const PLUGIN_VERSION = '21.1.58';
     const _SIG = '@@KANO_TRAFFIC_PLUGIN_ID:5d1f8b@@';
     const _PS = '<!-- [KANO_PLUGIN_START]';
     const _PE = '<!-- [KANO_PLUGIN_END]';
@@ -1512,14 +1515,33 @@
             _grandSeen.add(cm);
             grand += getTraffic(cm).total;
         }
-        const sortedDevices = [...deviceList].sort((a, b) => getTraffic(b.mac).total - getTraffic(a.mac).total);
+        // v21.1.58: 在线列表按别名组折叠 —— 「合并同一设备」后同组只出一行(旧版每个别名渲染一行且都显示整组合计, 看着像多台重复设备);
+        // 代表成员优选: 主MAC > 有IPv4 > 有信号; IPv6地址取整组并集
+        const _foldMap = new Map();
+        for (const d of deviceList) {
+            const cm = canonMac(d.mac);
+            const cur = _foldMap.get(cm);
+            if (!cur) { _foldMap.set(cm, d); continue; }
+            const _score = (x) => (x.mac === cm ? 4 : 0) + (x.ip ? 2 : 0) + (x.signal != null ? 1 : 0);
+            const keep = _score(d) > _score(cur) ? d : cur;
+            const other = keep === d ? cur : d;
+            _foldMap.set(cm, {
+                ...keep,
+                ip: keep.ip || other.ip,
+                ip6s: [...new Set([...(keep.ip6s || []), ...(other.ip6s || [])])],
+                signal: keep.signal != null ? keep.signal : other.signal,
+                connType: keep.connType || other.connType
+            });
+        }
+        const sortedDevices = [..._foldMap.values()].sort((a, b) => getTraffic(b.mac).total - getTraffic(a.mac).total);
         let html = '';
         if (sortedDevices.length > 0) {
             html += `<tr><td colspan="7" style="padding:6px 8px;font-size:10px;opacity:.5;text-align:left;color:#4ade80;">${ICON.online} 在线设备 (${sortedDevices.length})</td></tr>`;
             for (const d of sortedDevices) {
                 const t = getTraffic(d.mac);
                 const pct = grand > 0 ? ((t.total / grand) * 100).toFixed(1) : 0;
-                const h = trafficHistory[d.mac];
+                const h = trafficHistory[d.mac] || histOf(d.mac); // v21.1.58: 折叠代表可能无自身历史条目, 回落组内代表
+                const _aliasN = aliasGroupOf(d.mac).length; // v21.1.58: 合并徽标
                 // v21.1.28: 按日分段条 —— 近7天每日流量, 颜色按日期从早到晚(同一天同色)
                 const segs = getDailySegs(d.mac, h);
                 const segTot = segs.reduce((x, y) => x + y.total, 0);
@@ -1536,6 +1558,7 @@
                         <div class="kano-hostname" style="font-weight:700;font-size:13px;display:flex;align-items:center;gap:6px;">
                             ${escHtml(d.hostname)}
                             ${d.connType ? `<span style="font-size:9px;opacity:.5;font-weight:400;" title="连接方式">${d.connType === '有线' ? ICON.wired + '有线' : d.connType === '无线' ? ICON.wifi + '无线' : escHtml(d.connType)}</span>` : ''}
+                            ${_aliasN > 1 ? `<span style="font-size:9px;opacity:.55;font-weight:400;" title="已合并 ${_aliasN} 个身份(随机MAC/IPv6派生), 流量按整组聚合; 可在 设置→维护工具→⇄合并同一设备 调整">⇄${_aliasN}</span>` : ''}
                             <button class="kano-rename-btn" data-mac="${d.mac}" title="改名" style="font-size:10px;padding:1px 5px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:3px;color:inherit;cursor:pointer;opacity:.5;">${ICON.rename}</button>
                         </div>
                         <div style="font-size:11px;opacity:.55;">${ipDisplay}</div>

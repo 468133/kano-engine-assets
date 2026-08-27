@@ -1,10 +1,10 @@
 {
 "rev": "1.0.22",
 "jsRev": "21.1.56",
-"guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.22.b64",
-"deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.22.b64",
-"js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_21.1.56_fix.b64",
-"fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.22.sh",
+"guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@9aa6e6ae2d56abbf6523ee6f38114587fadbdde1/binaries/kano_engine_v1.0.22.b64",
+"deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@9aa6e6ae2d56abbf6523ee6f38114587fadbdde1/deploy/deploy_v1.0.22.b64",
+"js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@9aa6e6ae2d56abbf6523ee6f38114587fadbdde1/js/patch_21.1.56_fix.b64",
+"fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@9aa6e6ae2d56abbf6523ee6f38114587fadbdde1/fixtures/run_fixtures_v1.0.22.sh",
 "md5": "4a5db6321aafef51fa5d29503f9b1cf0",
 "notes": "引擎v1.0.22(热修): 修复 v1.0.21 发布事故 —— ① 二进制自报版本号误为 1.0.20(永远提示可更新); ② deploy b64 含 CR 致设备 base64 解码失败(引擎下载/重装一直失败); ③ deploy 内嵌 MD5 与二进制不符(校验必败)。功能同 v1.0.21(un_tab 随 resetsys 同清 + WAN系统增量持久化 + 台账补种)。插件v21.1.56: 今日卡片双列(今日流量/今日WAN总流量); 清除流量连带清今日并联动清零引擎系统增量; 归因弹窗未归属TOP反查设备。历史更新说明见 kano_engine/更新计划.md。"
 }

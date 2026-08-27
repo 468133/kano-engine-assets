@@ -1,10 +1,10 @@
 {
   "rev": "1.0.21",
   "jsRev": "21.1.56",
-  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@8ff41c5c54e11ba490ef792da56da2b7edfb90ae/binaries/kano_engine_v1.0.21.b64",
-  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@8ff41c5c54e11ba490ef792da56da2b7edfb90ae/deploy/deploy_v1.0.21.b64",
-  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@8ff41c5c54e11ba490ef792da56da2b7edfb90ae/js/patch_v21.1.56.b64",
-  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@8ff41c5c54e11ba490ef792da56da2b7edfb90ae/fixtures/run_fixtures_v1.0.21.sh",
+  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.21.b64",
+  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/deploy/deploy_v1.0.21.b64",
+  "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/js/patch_v21.1.56.b64",
+  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/fixtures/run_fixtures_v1.0.21.sh",
   "md5": "42d610862354495b9c86df7b9b891be1",
-  "notes": "引擎v1.0.21: 未归属地址表(un_tab)随 resetsys 同清 —— 清除流量/日报归档后归因四项(sys/win_dev/win_loc/unattr)同窗口, 消除旧版「推算未归属=0 但独立记账 unattr>0」的自相矛盾, 未归属TOP不再残留清除前旧地址。插件v21.1.56: ① 今日卡片双列 —— 像总上行/总下行一样同时显示「今日流量(按设备)」与「今日WAN总流量(引擎台账 __wan__, WAN口0点起, 含路由器自身与未归属)」; ② 「清除流量」连带清除今日 —— 引擎模式 resetsys 后重读已清空的台账文件, iptables 回退模式删前端今天段并写回。插件v21.1.55: 归属优化 —— ① 归因弹窗「未归属 TOP」按 IP/IPv6 反查实际设备; ② 「清除流量」后轮询等引擎 resetsys 落地, 总览/归因立即刷新。插件v21.1.54: 「清除流量」联动清零引擎 WAN 系统增量。引擎v1.0.20: 修复WAN系统增量前端重开清零 + 台账补种。历史更新说明见 kano_engine/更新计划.md。(2026-08-27 缓存刷新触发)"
+  "notes": "引擎v1.0.21: 未归属地址表(un_tab)随 resetsys 同清 —— 清除流量/日报归档后归因四项(sys/win_dev/win_loc/unattr)同窗口, 消除旧版「推算未归属=0 但独立记账 unattr>0」的自相矛盾, 未归属TOP不再残留清除前旧地址。插件v21.1.56: ① 今日卡片双列 —— 像总上行/总下行一样同时显示「今日流量(按设备)」与「今日WAN总流量(引擎台账 __wan__, WAN口0点起, 含路由器自身与未归属)」; ② 「清除流量」连带清除今日 —— 引擎模式 resetsys 后重读已清空的台账文件, iptables 回退模式删前端今天段并写回。插件v21.1.55: 归属优化 —— ① 归因弹窗「未归属 TOP」按 IP/IPv6 反查实际设备; ② 「清除流量」后轮询等引擎 resetsys 落地, 总览/归因立即刷新。插件v21.1.54: 「清除流量」联动清零引擎 WAN 系统增量。引擎v1.0.20: 修复WAN系统增量前端重开清零 + 台账补种。历史更新说明见 kano_engine/更新计划.md。"
 }

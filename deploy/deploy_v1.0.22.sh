@@ -1,5 +1,6 @@
 #!/system/bin/sh
-# kano_engine 云端部署脚本 v1.0.17 —— KANO_TRAFFIC 插件兜底路径(设备侧直连)执行
+# kano_engine 云端部署脚本 v1.0.22 —— KANO_TRAFFIC 插件兜底路径(设备侧直连)执行
+# v1.0.22: 热修 —— 二进制自报版本号误为1.0.20(编译忘升ENGINE_REV)+deploy_b64含CR致base64解码失败+deploy内嵌MD5与二进制不符, 三处叠加导致v1.0.21永远装不上/装了也永远提示更新; 本版仅修版本串与部署链路, 功能同v1.0.21
 # 由插件 base64 -d 后以 sh 运行; 不依赖 set -e(busybox 兼容性), 每步显式判断
 # v1.0.12: WAN 0点基线(kano_wan_daybase, 换天落盘当日计数器, 插件今日流量真0点对齐)
 # v1.0.13: 修 --test 自检模式台账/累计路径数组按初始串定长被 snprintf 截断(fixtures s6/s7 全 FAIL 根因)
@@ -7,12 +8,15 @@
 # v1.0.15: 修重启后永久假降级(acct_on 成功分支复位+数据自愈+重试提速60s)
 # v1.0.16: resetsys 连带清空按日台账(归档重计后排行/按日趋势不再显示旧日期) + WAN 逐日台账(__wan__ 伪键)
 # v1.0.17: 新增 deldays 命令 —— 区间归档重计后按天删台账(流量已进区间快照, 不留残影)
+# v1.0.18: 同窗口归因计数器(devDelta/ctLocalDelta 随 resetsys 同清) —— 修首次归档后归因"设备合计>WAN总量"错位
+# v1.0.19: sysDelta/同窗口计数器/WAN last 持久化(kano_wan_sysdelta) —— 引擎重启后系统增量不归零, 停机段首轮补回
+# v1.0.22: 台账补种 —— 升级首启无 sysdelta 文件时, 用按日台账 __wan__ "今天以前"的天补回 sysDelta/win_dev
 DIR=/data/data/com.minikano.f50_sms
 BIN=$DIR/kano_engine
 VER=$DIR/kano_engine.ver
 PID=$DIR/kano_engine.pid
 CURL=$DIR/files/curl
-MD5="d67e967f95c296b97cf748a30c87ad24"
+MD5="4a5db6321aafef51fa5d29503f9b1cf0"
 BOOT=/sdcard/ufi_tools_boot.sh
 BOOTLINE="nohup $BIN >>$DIR/kano_engine.log 2>&1 &"
 
@@ -22,14 +26,14 @@ C=curl
 # 1. 下载 base64 并解码(国内镜像 + jsDelivr 4节点 + GitHub 代理 2节点轮询, 防单源被阻断)
 ok=0
 for U in \
-  "https://cdn.jsdmirror.com/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.17.b64" \
-  "https://jsd.onmicrosoft.cn/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.17.b64" \
-  "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.17.b64" \
-  "https://fastly.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.17.b64" \
-  "https://gcore.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.17.b64" \
-  "https://testingcf.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.17.b64" \
-  "https://ghfast.top/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v1.0.17.b64" \
-  "https://ghproxy.net/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v1.0.17.b64" \
+  "https://cdn.jsdmirror.com/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.22.b64" \
+  "https://jsd.onmicrosoft.cn/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.22.b64" \
+  "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.22.b64" \
+  "https://fastly.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.22.b64" \
+  "https://gcore.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.22.b64" \
+  "https://testingcf.jsdelivr.net/gh/468133/kano-engine-assets@main/binaries/kano_engine_v1.0.22.b64" \
+  "https://ghfast.top/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v1.0.22.b64" \
+  "https://ghproxy.net/https://raw.githubusercontent.com/468133/kano-engine-assets/main/binaries/kano_engine_v1.0.22.b64" \
 ; do
     "$C" -fsSL --connect-timeout 8 --max-time 30 "$U" -o "$DIR/.ke.b64" && [ -s "$DIR/.ke.b64" ] && { ok=1; break; }
 done
@@ -46,7 +50,7 @@ m=$(md5sum "$BIN.new" 2>/dev/null | awk '{print $1}')
 # 3. 就位 + 版本标记
 chmod 777 "$BIN.new"
 mv -f "$BIN.new" "$BIN"
-printf '%s' '1.0.17' > "$VER"
+printf '%s' '1.0.22' > "$VER"
 
 # 4. 开启 conntrack 记账
 printf '1' > /proc/sys/net/netfilter/nf_conntrack_acct 2>/dev/null

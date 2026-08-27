@@ -1,7 +1,9 @@
 //<script>
 (async () => {
     // ============================================================
-    //  设备流量监控插件 v21.1.56 (今日流量/今日WAN双列卡片, 清除流量连带清今日, 引擎v1.0.21归因四项同窗口)
+    //  设备流量监控插件 v21.1.57 (小UI卡片防拥挤, 适配引擎v1.0.22热修)
+    //  v21.1.57 新增: 小UI(超窄屏)总览卡片防拥挤 —— 标题缩9px、数值缩11px、隐藏第三行小字注释、
+    //    双值间距收紧(田字格2x2在小窗下不再挤); 配合引擎v1.0.22热修版(修v1.0.21发布事故: 版本串/deploy b64/MD5)
     //  v21.1.53 新增: ① 「⇄ 合并同一设备」—— 手机/平板随机MAC(本地管理位)每次变MAC就被当成新设备,
     //    维护工具新增合并: 自动建议组(同名非泛化主机名/IPv6交集)+手动选择+可撤销; 别名持久化
     //    kano_mac_aliases.json; 存储不合并、显示折叠 —— 总览/排行/趋势/设备列表/归档快照全部按
@@ -108,7 +110,7 @@
     window.addEventListener('error', (e) => _pushErr('error', e.message || 'unknown', (e.filename || '') + ':' + (e.lineno || '')));
     window.addEventListener('unhandledrejection', (e) => _pushErr('reject', ((e.reason && (e.reason.message || e.reason)) || 'unhandledrejection') + '', ''));
 
-    const PLUGIN_VERSION = '21.1.56';
+    const PLUGIN_VERSION = '21.1.57';
     const _SIG = '@@KANO_TRAFFIC_PLUGIN_ID:5d1f8b@@';
     const _PS = '<!-- [KANO_PLUGIN_START]';
     const _PE = '<!-- [KANO_PLUGIN_END]';
@@ -5020,6 +5022,11 @@
             /* 超窄屏(小窗)视图: 田字2x2, 上传/下行各占一行 */
             #IFRAME_KANO_TRAFFIC.kano-tiny #kano_traffic_overview > div { grid-template-columns:1fr 1fr !important; gap:4px !important; }
             #IFRAME_KANO_TRAFFIC.kano-tiny #kano_traffic_overview > div > div { padding:6px 2px !important; }
+            /* v21.1.57: 小UI卡片防拥挤 —— 标题9px、数值11px、隐藏第三行小字注释、双值间距收紧 */
+            #IFRAME_KANO_TRAFFIC.kano-tiny #kano_traffic_overview > div > div > div:nth-child(1) { font-size:9px !important; margin-bottom:2px !important; }
+            #IFRAME_KANO_TRAFFIC.kano-tiny #kano_traffic_overview > div > div > div:nth-child(2) { gap:3px !important; }
+            #IFRAME_KANO_TRAFFIC.kano-tiny #kano_traffic_overview > div > div > div:nth-child(2) span { font-size:11px !important; }
+            #IFRAME_KANO_TRAFFIC.kano-tiny #kano_traffic_overview > div > div > div:nth-child(3) { display:none !important; }
             #IFRAME_KANO_TRAFFIC.kano-tiny .kano-tbl thead { display:none; }
             #IFRAME_KANO_TRAFFIC.kano-tiny .kano-tbl,
             #IFRAME_KANO_TRAFFIC.kano-tiny .kano-tbl tbody,

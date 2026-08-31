@@ -1,10 +1,10 @@
 {
  "rev": "1.0.25",
- "jsRev": "21.1.62",
+ "jsRev": "21.1.63",
  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@0568fb3de459c235aad8848623f7393d44aa53c1/binaries/kano_engine_v1.0.25.b64",
  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@0568fb3de459c235aad8848623f7393d44aa53c1/deploy/deploy_v1.0.25.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@8f2032a88b8b78dd694cd4d33247e36ca939d204/js/patch_v21.1.62.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@d2802f59da69a443b27cc1ce6bcd40bd4e4936cb/js/patch_v21.1.63.b64",
  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@0568fb3de459c235aad8848623f7393d44aa53c1/fixtures/run_fixtures_v1.0.25.sh",
  "md5": "47230575cf840983bbb495ea5ec6c423",
- "notes": "插件v21.1.62: 修合并建议误并不同设备(去掉IPv6同/64分组); 每日补归档改走引擎台账+整体重计(修重计不生效/旧流量残留); 趋势无归档时可切回按日; 诊断包与自检输出精简。插件v21.1.61+引擎v1.0.25: 修今日WAN重启归零(load_daily丢__wan__); 今日卡片叠加改逐次差值累加。更早记录见 kano_engine/更新计划.md。"
+ "notes": "插件v21.1.63(热修): 补归档台账路径冷启动不生效(engineActive缓存为空必false)已改主动读引擎JSON, 修昨日流量回填进今天; 重计基线对齐改用新鲜引擎值防差分复活。v21.1.62: 修合并误并/归档重计/趋势按钮/诊断精简。更早见 kano_engine/更新计划.md。"
 }

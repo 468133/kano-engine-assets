@@ -1,10 +1,10 @@
 {
- "rev": "1.0.25",
- "jsRev": "21.1.63",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@0568fb3de459c235aad8848623f7393d44aa53c1/binaries/kano_engine_v1.0.25.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@0568fb3de459c235aad8848623f7393d44aa53c1/deploy/deploy_v1.0.25.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@d2802f59da69a443b27cc1ce6bcd40bd4e4936cb/js/patch_v21.1.63.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@0568fb3de459c235aad8848623f7393d44aa53c1/fixtures/run_fixtures_v1.0.25.sh",
- "md5": "47230575cf840983bbb495ea5ec6c423",
- "notes": "插件v21.1.63(热修): 补归档台账路径冷启动不生效(engineActive缓存为空必false)已改主动读引擎JSON, 修昨日流量回填进今天; 重计基线对齐改用新鲜引擎值防差分复活。v21.1.62: 修合并误并/归档重计/趋势按钮/诊断精简。更早见 kano_engine/更新计划.md。"
+ "rev": "1.0.26",
+ "jsRev": "21.1.64",
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@fb4d152b0bf6bd41fbadf489028bdaa4a550feb9/binaries/kano_engine_v1.0.26.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@fb4d152b0bf6bd41fbadf489028bdaa4a550feb9/deploy/deploy_v1.0.26.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@fb4d152b0bf6bd41fbadf489028bdaa4a550feb9/js/patch_v21.1.64.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@fb4d152b0bf6bd41fbadf489028bdaa4a550feb9/fixtures/run_fixtures_v1.0.26.sh",
+ "md5": "17d30cacd1904f262f78624ff3d6b84b",
+ "notes": "插件v21.1.64: ①修补归档晚执行清过头(重计后回填今日台账, 0点~执行间不再被误抹) ②修单设备删除/清除统计失效(flushHistory 前补 _localResetAt 守卫防磁盘复活) ③修区间归档把今天标成已移除致今日流量/今日WAN永久归零(archivedDays 排除今天+自愈) ④诊断包增强(台账/归因摘要·未归属占比·限速检查常开·引擎自检结果)。引擎v1.0.26: 未归属追认归属(追认窗口的未归属按方向移回设备)+DHCP租约播种归属(邻居GC后仍可按租约归属)。v21.1.63 见历史版本。"
 }

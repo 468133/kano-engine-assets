@@ -1,5 +1,5 @@
 {
-	"version": "1.6.1",
-	"apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.6.1-r1_all.apk",
+	"version": "1.6.2",
+	"apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.6.2-r1_all.apk",
 	"note": "改用 LuCI 官方弹窗层，修复限速/改名按钮无法打开"
 }

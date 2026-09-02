@@ -1,10 +1,10 @@
 {
- "rev": "1.0.27",
- "jsRev": "21.1.66",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4d0e1b1ca70cba7b5529b8bc5ec529b5f44bc05c/binaries/kano_engine_v1.0.27.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4d0e1b1ca70cba7b5529b8bc5ec529b5f44bc05c/deploy/deploy_v1.0.27.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4d0e1b1ca70cba7b5529b8bc5ec529b5f44bc05c/js/patch_v21.1.66.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4d0e1b1ca70cba7b5529b8bc5ec529b5f44bc05c/fixtures/run_fixtures_v1.0.27.sh",
- "md5": "3ebc6f16ae69217fefdc8813f0d51814",
- "notes": "插件v21.1.66+引擎v1.0.27: 引擎改2s轮询(治IPv6短命连接漏计, 双插件对比实锤热点conntrack2.7G vs 我们1.88G同一张表, 差异全在WiFi设备v6); JSON上报interval供插件自愈校验。v21.1.65: 回添日报拦截+未归属差额说明。v21.1.64: 修晚补归档清今日/单设备删除/区间归档清今日。"
+ "rev": "1.0.28",
+ "jsRev": "21.1.67",
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@7bff7667fed3a1ccd7f74c69bf84ca5f29daa506/binaries/kano_engine_v1.0.28.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@7bff7667fed3a1ccd7f74c69bf84ca5f29daa506/deploy/deploy_v1.0.28.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@7bff7667fed3a1ccd7f74c69bf84ca5f29daa506/js/patch_v21.1.67.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@7bff7667fed3a1ccd7f74c69bf84ca5f29daa506/fixtures/run_fixtures_v1.0.27.sh",
+ "md5": "0ca9c5e8e02c5377c5159bcd3dbbbdb2",
+ "notes": "插件v21.1.67+引擎v1.0.28: 降载优化 —— 引擎conn_tab8192/conn_sweep每4轮/邻居16s/租约30s/落盘60s/周期自检300s(保持原时间维度), 前端台账检查20s; 实测我们引擎RSS2.3MB·CPU0.2%已远轻于热点(7MB·2.7%)。v21.1.66: 引擎2s轮询治IPv6短命漏计。"
 }

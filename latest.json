@@ -1,10 +1,10 @@
 {
- "rev": "1.0.29",
- "jsRev": "21.1.68",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4e1316826b2ad520f0fc282472ef13af605cf38b/binaries/kano_engine_v1.0.29.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4e1316826b2ad520f0fc282472ef13af605cf38b/deploy/deploy_v1.0.29.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4e1316826b2ad520f0fc282472ef13af605cf38b/js/patch_v21.1.68.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4e1316826b2ad520f0fc282472ef13af605cf38b/fixtures/run_fixtures_v1.0.29.sh",
- "md5": "ed30b5dd9c17020b2aad653805435e64",
- "notes": "插件v21.1.68+引擎v1.0.29: 清除流量改清当前周期(引擎resetsys cur只清窗口, 台账全保留); fixtures v1.0.29 真机定版 PASS=79。v21.1.67/1.0.28降载。"
+ "rev": "1.0.30",
+ "jsRev": "21.1.69",
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets/@726671fd522fbc53e4aa10e752cc9ccb43fbe9b2/binaries/kano_engine_v1.0.30.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets/@726671fd522fbc53e4aa10e752cc9ccb43fbe9b2/deploy/deploy_v1.0.30.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets/@726671fd522fbc53e4aa10e752cc9ccb43fbe9b2/js/patch_v21.1.69.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets/@726671fd522fbc53e4aa10e752cc9ccb43fbe9b2/fixtures/run_fixtures_v1.0.30.sh",
+ "md5": "8bfb231366ccaf0f69889284f2113256",
+ "notes": "插件v21.1.69+引擎v1.0.30: 未归属三档拆分/口径说明/CSV导出/快照90天滚动(插件); 原子落盘tmp+fsync+rename/台账90天/启动一致性自检日志(引擎)。已发布 726671fd"
 }

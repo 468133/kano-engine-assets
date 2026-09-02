@@ -199,3 +199,31 @@ kano-engine-assets/
 ---
 
 *最后更新: 2026-08-14*
+
+---
+
+## 📡 OpenWrt 版「设备流量监控」(luci-app-devmon)
+
+本仓库 `devmon/` 目录同时托管 **OpenWrt LuCI 版设备流量监控插件**（luci-app-devmon），适用于 OpenWrt 24.10+ / 25.x（apk 包管理）。
+
+### 特性
+- 纯前端 LuCI2 插件，**零常驻/零后台进程**；数据源 = OpenWrt 官方 nlbwmon（netlink 内核记账，不误统计）
+- 总览卡片(下载/上传/合计/设备) + WAN 口实际消耗条 + 会话归因小字
+- 设备排行（当前周期/累计历史）、历史按日、近 7/14/30 日趋势（柱状/折线）
+- 设备改名（持久化 /etc/devmon.json）+ 每设备限速（nftables，fw4 重启保留）
+- 云端更新：设置页「检查更新/立即更新」，内置多镜像自动回退（jsDelivr / ghfast / gh-proxy / raw）
+
+### 安装
+- OpenWrt 25.x：LuCI → 系统 → Software → Upload Package → 选 `devmon/luci-app-devmon_*.apk`
+- 入口：服务 → 设备流量监控
+
+### devmon 更新源
+`devmon/latest.json` → `{ "version": "x.y.z", "apk": "…", "note": "…" }`
+插件每次「检查更新」会拉取该清单并在有新版时提示一键升级。
+
+### OpenWrt 版免责声明
+与上方一致：AI 辅助生成，建议先在测试设备验证。
+
+---
+
+*OpenWrt 版 luci-app-devmon 最新: 见 `devmon/latest.json`*

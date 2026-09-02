@@ -1,0 +1,5 @@
+{
+  "version": "1.4.1",
+  "apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.4.1-r1_all.apk",
+  "note": "修复限速/改名按钮；新增折线图"
+}

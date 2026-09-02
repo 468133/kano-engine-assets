@@ -1,5 +1,5 @@
 {
-	"version": "1.6.3",
-	"apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.6.3-r1_all.apk",
-	"note": "多镜像自动回退更新源，修复检测不到新版本"
+	"version": "1.6.4",
+	"apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.6.4-r1_all.apk",
+	"note": "取多镜像最高版本，防 jsDelivr 缓存旧版误导"
 }

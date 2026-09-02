@@ -1,10 +1,10 @@
 {
- "rev": "1.0.26",
- "jsRev": "21.1.65",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@59a959740d240dea3934ae31b3147f3528a12da3/binaries/kano_engine_v1.0.26.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@59a959740d240dea3934ae31b3147f3528a12da3/deploy/deploy_v1.0.26.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@59a959740d240dea3934ae31b3147f3528a12da3/js/patch_v21.1.65.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@59a959740d240dea3934ae31b3147f3528a12da3/fixtures/run_fixtures_v1.0.27.sh",
- "md5": "17d30cacd1904f262f78624ff3d6b84b",
- "notes": "插件v21.1.65: 历史页回添禁止日报快照(真机实锤回添9/1日报34GB致9/1+9/2混合)+未归属差额加根因说明(netfilter外硬件加速流量非统计遗漏)。v21.1.64: 修晚补归档清今日/单设备删除复活/区间归档清今日卡片+诊断包增强。引擎v1.0.26: 未归属追认+租约播种。"
+ "rev": "1.0.27",
+ "jsRev": "21.1.66",
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4d0e1b1ca70cba7b5529b8bc5ec529b5f44bc05c/binaries/kano_engine_v1.0.27.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4d0e1b1ca70cba7b5529b8bc5ec529b5f44bc05c/deploy/deploy_v1.0.27.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4d0e1b1ca70cba7b5529b8bc5ec529b5f44bc05c/js/patch_v21.1.66.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@4d0e1b1ca70cba7b5529b8bc5ec529b5f44bc05c/fixtures/run_fixtures_v1.0.27.sh",
+ "md5": "3ebc6f16ae69217fefdc8813f0d51814",
+ "notes": "插件v21.1.66+引擎v1.0.27: 引擎改2s轮询(治IPv6短命连接漏计, 双插件对比实锤热点conntrack2.7G vs 我们1.88G同一张表, 差异全在WiFi设备v6); JSON上报interval供插件自愈校验。v21.1.65: 回添日报拦截+未归属差额说明。v21.1.64: 修晚补归档清今日/单设备删除/区间归档清今日。"
 }

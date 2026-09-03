@@ -1,5 +1,5 @@
 {
 	"version": "1.7.3",
 	"apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.7.3-r1_all.apk",
-	"note": "测试版：请点立即更新体验云端升级"
+	"note": "修复弹窗崩溃；新增统计口径说明/CSV导出/清当前周期(保历史)/设备忽略/OUI厂商显示"
 }

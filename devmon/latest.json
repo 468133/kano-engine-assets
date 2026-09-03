@@ -1,5 +1,5 @@
 {
-	"version": "1.7.0",
-	"apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.7.0-r1_all.apk",
-	"note": "新增清空统计；设备行大按钮(手机可点)；历史说明"
+	"version": "1.7.1",
+	"apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.7.1-r1_all.apk",
+	"note": "未知设备显示厂商(OUI)+尾号，未归属单独标注"
 }

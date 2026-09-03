@@ -1,5 +1,5 @@
 {
-	"version": "1.8.1",
-	"apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.8.1-r1_all.apk",
-	"note": "WAN条新增合计(Σ)；含近7日柱/诊断导出/对账徽标"
+	"version": "1.8.2",
+	"apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.8.2-r1_all.apk",
+	"note": "清周期改为立即归档(数据源限制)；WAN合计Σ；近7日柱/诊断/对账/活跃点"
 }

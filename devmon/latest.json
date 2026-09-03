@@ -1,5 +1,5 @@
 {
-	"version": "1.7.4",
-	"apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.7.4-r1_all.apk",
-	"note": "新增：统计口径说明折叠/CSV导出/清当前周期(保历史)/设备忽略恢复/OUI厂商显示"
+	"version": "1.8.0",
+	"apk": "https://raw.githubusercontent.com/468133/kano-engine-assets/main/devmon/luci-app-devmon_1.8.0-r1_all.apk",
+	"note": "v1.8.0：诊断导出/近7日设备迷你柱/账目对账徽标/活跃状态点/口径说明/CSV/清当前周期"
 }

@@ -1,10 +1,10 @@
 {
  "rev": "1.0.33",
- "jsRev": "22.0.8",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@73cbe2cff767c1d924dd05d9ab5f1b6d8cee5067/binaries/kano_engine_v1.0.33.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@73cbe2cff767c1d924dd05d9ab5f1b6d8cee5067/deploy/deploy_v1.0.33.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@73cbe2cff767c1d924dd05d9ab5f1b6d8cee5067/js/patch_v22.0.8.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@73cbe2cff767c1d924dd05d9ab5f1b6d8cee5067/fixtures/run_fixtures_v1.0.33.sh",
+ "jsRev": "22.0.9",
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@969fd2b8e3a35792ed9b7c0770f6843408b27c0b/binaries/kano_engine_v1.0.33.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@969fd2b8e3a35792ed9b7c0770f6843408b27c0b/deploy/deploy_v1.0.33.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@969fd2b8e3a35792ed9b7c0770f6843408b27c0b/js/patch_v22.0.9.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@969fd2b8e3a35792ed9b7c0770f6843408b27c0b/fixtures/run_fixtures_v1.0.33.sh",
  "md5": "314f534df7d03872941e401da2337a98",
  "notes": "插件v21.1.69+引擎v1.0.30: 未归属三档拆分/口径说明/CSV导出/快照90天滚动(插件); 原子落盘tmp+fsync+rename/台账90天/启动一致性自检日志(引擎)。已发布 726671fd"
 }

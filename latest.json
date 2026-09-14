@@ -1,10 +1,10 @@
 {
  "rev": "1.0.33",
- "jsRev": "22.0.12",
+ "jsRev": "22.0.13",
  "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@6214f4eb964780ddb4729416bf84417dd9bf707b/binaries/kano_engine_v1.0.33.b64",
  "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@6214f4eb964780ddb4729416bf84417dd9bf707b/deploy/deploy_v1.0.33.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@6214f4eb964780ddb4729416bf84417dd9bf707b/js/patch_v22.0.12.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@e86d91a14755c29585eaccb613ed13b667622b6d/js/patch_v22.0.13.b64",
  "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@6214f4eb964780ddb4729416bf84417dd9bf707b/fixtures/run_fixtures_v1.0.33.sh",
  "md5": "314f534df7d03872941e401da2337a98",
- "notes": "插件v21.1.69+引擎v1.0.30: 未归属三档拆分/口径说明/CSV导出/快照90天滚动(插件); 原子落盘tmp+fsync+rename/台账90天/启动一致性自检日志(引擎)。已发布 726671fd"
+ "notes": "插件v22.0.13精简版(min): 引擎-only计数(删iptables计数兜底)、保留限速/看门狗/诊断包/历史记录/排行/柱形趋势图、删除5个维护工具+折线图+fixtures自检、去注释。体积488K→230K(-53%), 自更新dd bs=2048修复旧版超长base64截断。"
 }

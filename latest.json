@@ -1,10 +1,10 @@
 {
- "rev": "1.0.33",
- "jsRev": "22.0.17",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@2e75ae52efd2d474cd4e23e707dddf0df8783d3c/binaries/kano_engine_v1.0.33.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@2e75ae52efd2d474cd4e23e707dddf0df8783d3c/deploy/deploy_v1.0.33.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@2e75ae52efd2d474cd4e23e707dddf0df8783d3c/js/patch_v22.0.17.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@2e75ae52efd2d474cd4e23e707dddf0df8783d3c/fixtures/run_fixtures_v1.0.33.sh",
- "md5": "314f534df7d03872941e401da2337a98",
- "notes": "插件v22.0.17: ①日报缺失根治(补日报提前到清台账之前, 旧版keepday清空历史台账后补不回来) ②快照上限随保留天数动态放宽(原硬编码50 vs 90天保留自相矛盾) ③旧日报push+按时间排序(原unshift把最近日报挤出上限) ④并发写加固(临时/备份文件按客户端唯一化+写锁, 治多端历史不一致) ⑤引擎瞬时缺设备连续3轮才清零(治重启后本周期归零)。引擎v1.0.33不变。"
+ "rev": "1.0.34",
+ "jsRev": "22.0.18",
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@HASH(0xa000274a8)/binaries/kano_engine_v1.0.34.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@HASH(0xa00027508)/deploy/deploy_v1.0.34.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@HASH(0xa000274a8)/js/patch_v22.0.18.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@HASH(0xa00027508)/fixtures/run_fixtures_v1.0.34.sh",
+ "md5": "2ccdd7268ef38a77896904da96355434",
+ "notes": "引擎v1.0.34: 修复未归属根因——运行期首见连接按已累计字节全额计入(旧版只建基线丢字节, 2s窗口内DNS/QUIC/TLS短命连接整条漏账, 真机残余率28.6%→约3%); 配套连接基线墓碑(同四元组重建不重复计)+conntrack读取中断恢复首轮只建基线。插件v22.0.18同版。"
 }

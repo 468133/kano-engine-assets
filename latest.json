@@ -1,10 +1,10 @@
 {
- "rev": "1.0.34",
- "jsRev": "22.0.18",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@9803b0e72fabb5dbc2f16a89504363408ff1ad33/binaries/kano_engine_v1.0.34.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@9803b0e72fabb5dbc2f16a89504363408ff1ad33/deploy/deploy_v1.0.34.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@9803b0e72fabb5dbc2f16a89504363408ff1ad33/js/patch_v22.0.18.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@9803b0e72fabb5dbc2f16a89504363408ff1ad33/fixtures/run_fixtures_v1.0.34.sh",
- "md5": "2ccdd7268ef38a77896904da96355434",
- "notes": "引擎v1.0.34: 修复未归属根因——运行期首见连接按已累计字节全额计入(旧版只建基线丢字节, 2s窗口内DNS/QUIC/TLS短命连接整条漏账, 真机残余率28.6%→约3%); 配套连接基线墓碑(同四元组重建不重复计)+conntrack读取中断恢复首轮只建基线。插件v22.0.18同版。"
+ "rev": "1.0.35",
+ "jsRev": "22.0.19",
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@e7ed69f896d0abb7bed1b765d7378bd6b35b5b10/binaries/kano_engine_v1.0.35.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@e7ed69f896d0abb7bed1b765d7378bd6b35b5b10/deploy/deploy_v1.0.35.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@e7ed69f896d0abb7bed1b765d7378bd6b35b5b10/js/patch_v22.0.19.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@e7ed69f896d0abb7bed1b765d7378bd6b35b5b10/fixtures/run_fixtures_v1.0.35.sh",
+ "md5": "08582cebcf8356b02e84a19933dc6b19",
+ "notes": "引擎v1.0.35: 修复设备侧幻影增量(今日台账解释率111%→正常)——①墓碑转死时保留 o/r(旧版清零), 仅表使用率≥70%才真删墓碑 ②复活时按增量计, 仅字节真回退(端口复用)才重建基线。旧版墓碑384s无条件删除, 长连接再现被当新连接全额重计, 真机实测多算约1128MB/小时, 修复后残余≤1.3%。插件v22.0.19: 云端清单改为拉全部源取最高 rev(修 jsDelivr 边缘节点刷新不同步导致误判'已是最新'), 手动点检查更新时绕过5分钟缓存。"
 }

@@ -1,10 +1,10 @@
 {
- "rev": "1.0.37",
+ "rev": "1.0.38",
  "jsRev": "22.0.20",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@f54a1a70af7e96e168ae83ec23505a05159d6422/binaries/kano_engine_v1.0.37.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@f54a1a70af7e96e168ae83ec23505a05159d6422/deploy/deploy_v1.0.37.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@f54a1a70af7e96e168ae83ec23505a05159d6422/js/patch_v22.0.20.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@f54a1a70af7e96e168ae83ec23505a05159d6422/fixtures/run_fixtures_v1.0.37.sh",
- "md5": "b20bce08ca47ae39ec7cbf15405d6dc1",
- "notes": "引擎v1.0.37: save_daily 加 fsync 刷盘——设备软重启(watchdog软重启)时 page cache 未落盘导致今日台账丢档(真机10-30丢0点~11:56约4GB), 与 save_sysdelta 同规则保证重启后台账不丢。插件v22.0.20不变。"
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@016bbf26158d75ac2425c397f70d25e12a8884a5/binaries/kano_engine_v1.0.38.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@016bbf26158d75ac2425c397f70d25e12a8884a5/deploy/deploy_v1.0.38.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@016bbf26158d75ac2425c397f70d25e12a8884a5/js/patch_v22.0.20.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@016bbf26158d75ac2425c397f70d25e12a8884a5/fixtures/run_fixtures_v1.0.38.sh",
+ "md5": "22c1a155845efd6fffe7564f0ebdb9e8",
+ "notes": "引擎v1.0.38: save_stats 加 fsync 刷盘(与 save_daily 同规则)——设备软重启防丢设备累计值。v1.0.37 已修复 save_daily 无 fsync 导致今日台账丢档。插件v22.0.20不变。"
 }

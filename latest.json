@@ -1,10 +1,10 @@
 {
- "rev": "1.0.36",
+ "rev": "1.0.37",
  "jsRev": "22.0.20",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@d3197038daab907a48f77e86df44460104b59e7b/binaries/kano_engine_v1.0.36.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@d3197038daab907a48f77e86df44460104b59e7b/deploy/deploy_v1.0.36.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@d3197038daab907a48f77e86df44460104b59e7b/js/patch_v22.0.20.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@d3197038daab907a48f77e86df44460104b59e7b/fixtures/run_fixtures_v1.0.36.sh",
- "md5": "4fd8317f6b604774a26b308df4e28cbd",
- "notes": "引擎v1.0.36: 修复高下载时段突发幻影——CONN_BUCKETS 8192→32768(装载率降到1/4) + 墓碑真删阈值70%→90%, 降低高并发下长连接重现被全额重计的概率(真机实测高速下载段突发多算约4GB)。插件v22.0.20: 压缩瘦身(355KB→282KB) + 源列表新增 gh-proxy.com 直连 GitHub raw(修 jsDelivr 边缘缓存不同步导致检测不到更新)。"
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@f54a1a70af7e96e168ae83ec23505a05159d6422/binaries/kano_engine_v1.0.37.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@f54a1a70af7e96e168ae83ec23505a05159d6422/deploy/deploy_v1.0.37.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@f54a1a70af7e96e168ae83ec23505a05159d6422/js/patch_v22.0.20.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@f54a1a70af7e96e168ae83ec23505a05159d6422/fixtures/run_fixtures_v1.0.37.sh",
+ "md5": "b20bce08ca47ae39ec7cbf15405d6dc1",
+ "notes": "引擎v1.0.37: save_daily 加 fsync 刷盘——设备软重启(watchdog软重启)时 page cache 未落盘导致今日台账丢档(真机10-30丢0点~11:56约4GB), 与 save_sysdelta 同规则保证重启后台账不丢。插件v22.0.20不变。"
 }

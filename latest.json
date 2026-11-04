@@ -1,10 +1,10 @@
 {
  "rev": "1.0.40",
- "jsRev": "22.0.28",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@88f329d097da8810673b54d01f788747142c322d/binaries/kano_engine_v1.0.40.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@88f329d097da8810673b54d01f788747142c322d/deploy/deploy_v1.0.40.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@88f329d097da8810673b54d01f788747142c322d/js/patch_v22.0.28.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@88f329d097da8810673b54d01f788747142c322d/fixtures/run_fixtures_v1.0.40.sh",
+ "jsRev": "22.0.29",
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@1c7fd37a4effab4685410a9d9a6e19ed668806a4/binaries/kano_engine_v1.0.40.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@1c7fd37a4effab4685410a9d9a6e19ed668806a4/deploy/deploy_v1.0.40.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@1c7fd37a4effab4685410a9d9a6e19ed668806a4/js/patch_v22.0.29.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@1c7fd37a4effab4685410a9d9a6e19ed668806a4/fixtures/run_fixtures_v1.0.40.sh",
  "md5": "2924c91c20ad0c42c83f501e2dd5fffa",
  "notes": "引擎v1.0.40: 修真机(肥猫U20/Android13)反馈的\"引擎在跑、root 能读、插件读不到 JSON\" —— 该 ROM 的 umask=077 让 root 创建的文件变 600，插件侧 stat/awk 全被拒，表现为已回退 iptables 而 JSON 龄仅 1s、且不触发解析异常计数。引擎 main 开头 umask(0)，JSON(644)/台账(666) 与 F50 一致；deploy 脚本额外 chmod 644 旧文件。插件 v22.0.24 配套：诊断包 ⓪ 能一眼认出这种\"root 能读 app 读不到\"，并在首屏尝试自动 chmod 修复。"
 }

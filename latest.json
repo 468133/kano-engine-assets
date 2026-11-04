@@ -1,10 +1,10 @@
 {
  "rev": "1.0.39",
- "jsRev": "22.0.22",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@527557b8214b4d53c340af62c5ebb39600bfa520/binaries/kano_engine_v1.0.39.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@527557b8214b4d53c340af62c5ebb39600bfa520/deploy/deploy_v1.0.39.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@527557b8214b4d53c340af62c5ebb39600bfa520/js/patch_v22.0.22.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@527557b8214b4d53c340af62c5ebb39600bfa520/fixtures/run_fixtures_v1.0.39.sh",
+ "jsRev": "22.0.23",
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@407b612bf018e8b21929a03787a4485c87e8a03b/binaries/kano_engine_v1.0.39.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@407b612bf018e8b21929a03787a4485c87e8a03b/deploy/deploy_v1.0.39.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@407b612bf018e8b21929a03787a4485c87e8a03b/js/patch_v22.0.23.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@407b612bf018e8b21929a03787a4485c87e8a03b/fixtures/run_fixtures_v1.0.39.sh",
  "md5": "96a1b138d219fcae3aaf5098375a42b6",
  "notes": "引擎v1.0.39: ① boot 日志自报运行环境(arch/kernel/cpu/mem/nf_conntrack_max/当前连接数) —— 诊断包从此自带设备信息; ② JSON 连续写失败 6 次主动 exit(非0)交看门狗拉起, 自杀优于僵死(自检模式豁免)。另修掉 v1.0.34~1.0.38 部署脚本里残留的 1.0.33 下载地址/版本标记(设备侧部署必失败, 只能退化浏览器中转)。插件 v22.0.21 不变。"
 }

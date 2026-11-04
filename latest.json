@@ -1,10 +1,10 @@
 {
  "rev": "1.0.38",
- "jsRev": "22.0.20",
- "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@016bbf26158d75ac2425c397f70d25e12a8884a5/binaries/kano_engine_v1.0.38.b64",
- "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@016bbf26158d75ac2425c397f70d25e12a8884a5/deploy/deploy_v1.0.38.b64",
- "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@016bbf26158d75ac2425c397f70d25e12a8884a5/js/patch_v22.0.20.b64",
- "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@016bbf26158d75ac2425c397f70d25e12a8884a5/fixtures/run_fixtures_v1.0.38.sh",
+ "jsRev": "22.0.21",
+ "guard": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@369efdc18f36a9d34490f8eb3beae8a35fae2361/binaries/kano_engine_v1.0.38.b64",
+ "deploy": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@369efdc18f36a9d34490f8eb3beae8a35fae2361/deploy/deploy_v1.0.38.b64",
+ "js": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@369efdc18f36a9d34490f8eb3beae8a35fae2361/js/patch_v22.0.21.b64",
+ "fixtures": "https://cdn.jsdelivr.net/gh/468133/kano-engine-assets@369efdc18f36a9d34490f8eb3beae8a35fae2361/fixtures/run_fixtures_v1.0.38.sh",
  "md5": "22c1a155845efd6fffe7564f0ebdb9e8",
- "notes": "引擎v1.0.38: save_stats 加 fsync 刷盘(与 save_daily 同规则)——设备软重启防丢设备累计值。v1.0.37 已修复 save_daily 无 fsync 导致今日台账丢档。插件v22.0.20不变。"
+ "notes": "插件v22.0.21: 修复 readEngineJson err>10 永久锁死(引擎健康却报已回退、刷新才恢复)、ver 文件丢失反复重部署(ensureEngineVer 从引擎 JSON 回写)、resetsys 误报版本过低、JSON 新鲜度 30s→120s、pid 在但 JSON 停更的假死自愈(先杀后起, 3 分钟冷却)、云端清单全源失败时用上次成功清单兜底。引擎仍 1.0.38 未变。"
 }
